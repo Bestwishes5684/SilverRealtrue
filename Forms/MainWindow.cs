@@ -1,4 +1,5 @@
 using SilverRealtrue.ModelsAndContex;
+using System.Windows.Forms;
 
 namespace SilverRealtrue
 {
@@ -27,8 +28,24 @@ namespace SilverRealtrue
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Search search = new Search();   
-            search.ShowDialog();
+            Search search = new Search();
+            if (search.ShowDialog() == DialogResult.OK)
+            {
+                using (var db = new SilverREContext())
+                {
+                    List<Check> checks;
+
+
+
+
+                    checks = db.Check.Where(x => x.IdCheck.ToString().Contains(search.searchRequest)).ToList();
+                            dataGridView1.DataSource = checks;
+                        
+                      
+                    
+                }
+            }
+         
         }
     }
 }

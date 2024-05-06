@@ -31,7 +31,6 @@
             panel1 = new Panel();
             button2 = new Button();
             button1 = new Button();
-            label1 = new Label();
             SearchButton = new Button();
             dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
@@ -42,7 +41,6 @@
             // 
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(SearchButton);
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(990, 0);
@@ -69,16 +67,6 @@
             button1.Text = "Поиск";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(36, 30);
-            label1.Name = "label1";
-            label1.Size = new Size(78, 32);
-            label1.TabIndex = 2;
-            label1.Text = "label1";
             // 
             // SearchButton
             // 
@@ -112,7 +100,6 @@
             Name = "MainWindow";
             Text = "Отчёты по серебру";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -120,7 +107,6 @@
         #endregion
 
         private Panel panel1;
-        private Label label1;
         private Button SearchButton;
   
         private DataGridView dataGridView1;

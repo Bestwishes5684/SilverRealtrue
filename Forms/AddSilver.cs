@@ -55,7 +55,8 @@ namespace SilverRealtrue
                     CoverageCheck= Convert.ToDecimal(textBox3.Text),
                     AmountCheck=Convert.ToInt32(textBox5.Text),
                     DecimalCheck=((DecimalNumber)comboBox2.SelectedItem).IdDecimal,
-                    OrderCheck=textBox2.Text
+              
+                    OrderCheck = textBox2.Text
 
 
 
