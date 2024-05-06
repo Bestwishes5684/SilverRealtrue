@@ -12,8 +12,6 @@ namespace SilverRealtrue
             using (var db = new SilverREContext())
             {
                 dataGridView1.DataSource = db.Check.ToList();
-
-
             }
             dataGridView1.Columns["DecimalCheckNavigation"].Visible = false;
             dataGridView1.Columns["SilverTypeCheckNavigation"].Visible = false;
@@ -35,14 +33,9 @@ namespace SilverRealtrue
                 {
                     List<Check> checks;
 
-
-
-
                     checks = db.Check.Where(x => x.IdCheck.ToString().Contains(search.searchRequest)).ToList();
                             dataGridView1.DataSource = checks;
-                        
-                      
-                    
+
                 }
             }
          

@@ -36,7 +36,8 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(131, 108);
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.Location = new Point(31, 60);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(269, 31);
@@ -45,7 +46,8 @@
             // button1
             // 
             button1.DialogResult = DialogResult.OK;
-            button1.Location = new Point(131, 154);
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(31, 130);
             button1.Name = "button1";
             button1.Size = new Size(99, 30);
             button1.TabIndex = 1;
@@ -55,34 +57,35 @@
             // 
             // button2
             // 
-            button2.Location = new Point(301, 154);
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(201, 130);
             button2.Name = "button2";
             button2.Size = new Size(99, 30);
             button2.TabIndex = 2;
-            button2.Text = "отмена";
+            button2.Text = "Отмена";
             button2.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(131, 84);
+            label1.Location = new Point(31, 25);
             label1.Name = "label1";
-            label1.Size = new Size(80, 21);
+            label1.Size = new Size(171, 21);
             label1.TabIndex = 3;
-            label1.Text = "Поиск  по";
+            label1.Text = "Поиск по номеру чека";
             // 
             // Search
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(536, 294);
+            ClientSize = new Size(338, 191);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(textBox1);
             Name = "Search";
-            Text = "Search";
+            Text = "Поиск";
             ResumeLayout(false);
             PerformLayout();
         }

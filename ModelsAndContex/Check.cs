@@ -30,7 +30,7 @@ namespace SilverRealtrue.ModelsAndContex
         public decimal? CoverageCheck { get; set; }
         [DisplayName ("Количество")]
         public int? AmountCheck { get; set; }
-        [DisplayName ( "Децимальный номер")]
+        [DisplayName ("Децимальный номер")]
         public int DecimalCheck { get; set; }
 
         [DisplayName ("Номер заказа")]

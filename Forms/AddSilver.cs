@@ -25,14 +25,13 @@ namespace SilverRealtrue
 
 
 
-                comboBox1.DataSource = db.SilverType.ToList();
-                comboBox2.DataSource=db.DecimalNumber.ToList();
-                comboBox1.SelectedIndex= 0;
-                comboBox2.SelectedIndex= 0;
+                comboBoxType.DataSource = db.SilverType.ToList();
+                comboBoxDecimal.DataSource = db.DecimalNumber.ToList();
 
 
-                comboBox1.DisplayMember = nameof(SilverType.TitleSilverType);
-                comboBox2.DisplayMember = nameof(DecimalNumber.TitleDecimal);
+                comboBoxType.DisplayMember = nameof(SilverType.TitleSilverType);
+                comboBoxDecimal.DisplayMember = nameof(DecimalNumber.TitleDecimal);
+
             }
 
         }
@@ -44,40 +43,55 @@ namespace SilverRealtrue
 
 
 
-                Check check = new Check
+                Check newCheck = new Check
                 {
-
-
                     DateCheck = DateTime.Now,
-                    DepartmentCheck = Convert.ToInt32(textBox4.Text),
-                    NormCheck = textBox1.Text,
-                    SilverTypeCheck = ((SilverType)comboBox1.SelectedItem).CodeSilverType,
-                    CoverageCheck= Convert.ToDecimal(textBox3.Text),
-                    AmountCheck=Convert.ToInt32(textBox5.Text),
-                    DecimalCheck=((DecimalNumber)comboBox2.SelectedItem).IdDecimal,
-              
-                    OrderCheck = textBox2.Text
-
-
-
+                    DepartmentCheck = Convert.ToInt32(comboBoxDepart.SelectedItem),
+                    NormCheck = textBoxNorm.Text,
+                    SilverTypeCheck = ((SilverType)comboBoxType.SelectedItem).CodeSilverType,
+                    CoverageCheck = Convert.ToDecimal(maskedTextBoxCover.Text),
+                    AmountCheck = Convert.ToInt32(numericUpDownAmount.Value),
+                    DecimalCheck = ((DecimalNumber)comboBoxDecimal.SelectedItem).IdDecimal,
+                    OrderCheck = textBoxOrder.Text
                 };
 
-                db.Check.Add(check);
+                db.Check.Add(newCheck);
                 db.SaveChanges();
+
+                MessageBox.Show("Успешное добавление");
+
                 this.Close();
-
-               
-
             }
-
-
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void textBoxOrder_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxNorm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
