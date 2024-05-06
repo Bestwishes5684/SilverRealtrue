@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
@@ -10,29 +11,29 @@ namespace SilverRealtrue.ModelsAndContex
 {
     public partial class Check
     {
-        [Display(Name ="Номер чека")]
+        [DisplayName ("Номер чека")]
         public int IdCheck { get; set; }
 
-        [Display(Name = "Дата создания чека ")]
+        [DisplayName ("Дата создания чека ")]
         public DateTime? DateCheck { get; set; }
 
-        [Display(Name = "Департамент")]
+        [DisplayName ( "Департамент")]
         public int? DepartmentCheck { get; set; }
 
-        [Display(Name = "Норма Серебра")]
+        [DisplayName ( "Норма Серебра")]
         public string NormCheck { get; set; }
 
-        [Display(Name = "тип серебра")]
+        [DisplayName ("тип серебра")]
         public int SilverTypeCheck { get; set; }
 
-        [Display(Name = "Площадь покрытия")]
+        [DisplayName ("Площадь покрытия")]
         public decimal? CoverageCheck { get; set; }
-        [Display(Name = "Количество")]
+        [DisplayName ("Количество")]
         public int? AmountCheck { get; set; }
-        [Display(Name = "Децимальный номер")]
+        [DisplayName ( "Децимальный номер")]
         public int DecimalCheck { get; set; }
 
-        [Display(Name = "Номер заказа")]
+        [DisplayName ("Номер заказа")]
         public string? OrderCheck { get; set; }
 
 
