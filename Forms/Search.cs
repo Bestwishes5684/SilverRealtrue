@@ -12,7 +12,7 @@ namespace SilverRealtrue
 {
     public partial class Search : Form
     {
-        public string searchRequest;
+        public static string searchRequest;
         public Search()
         {
             InitializeComponent();
@@ -20,8 +20,13 @@ namespace SilverRealtrue
 
         private void button1_Click(object sender, EventArgs e)
         {
-            searchRequest = textBox1.Text;
+            searchRequest = textBoxSearch.Text;
 
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();   
         }
     }
 }

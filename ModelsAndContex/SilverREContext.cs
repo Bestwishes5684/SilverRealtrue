@@ -28,7 +28,7 @@ namespace SilverRealtrue.ModelsAndContex
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-DDO84UQ; Database=SilverRE; Trusted_Connection=True");
+                optionsBuilder.UseSqlServer("Server=ORIT-14\\SQLEXPRESS; Database=SilverRE; User ID=Student ORIT; Password=DabiduN");
                     //"DESKTOP-T9MJ8MA\\SQLEXPRESS; database=SilverRE; integrated Security=false; Trusted_Connection=True");
             }
         }

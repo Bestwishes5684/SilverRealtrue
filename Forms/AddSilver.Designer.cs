@@ -229,7 +229,7 @@ namespace SilverRealtrue
             Controls.Add(label4);
             Controls.Add(label3);
             Name = "AddSilver";
-            Text = "Добавление серебера";
+            Text = "Формирование заказа";
             ((System.ComponentModel.ISupportInitialize)numericUpDownAmount).EndInit();
             ResumeLayout(false);
             PerformLayout();

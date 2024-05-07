@@ -28,42 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
+            textBoxSearch = new TextBox();
+            buttonSearch = new Button();
+            buttonClose = new Button();
             label1 = new Label();
             SuspendLayout();
             // 
-            // textBox1
+            // textBoxSearch
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(31, 60);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(269, 31);
-            textBox1.TabIndex = 0;
+            textBoxSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxSearch.Location = new Point(31, 60);
+            textBoxSearch.Multiline = true;
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.Size = new Size(269, 31);
+            textBoxSearch.TabIndex = 0;
             // 
-            // button1
+            // buttonSearch
             // 
-            button1.DialogResult = DialogResult.OK;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(31, 130);
-            button1.Name = "button1";
-            button1.Size = new Size(99, 30);
-            button1.TabIndex = 1;
-            button1.Text = "Поиск";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            buttonSearch.DialogResult = DialogResult.OK;
+            buttonSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonSearch.Location = new Point(31, 130);
+            buttonSearch.Name = "buttonSearch";
+            buttonSearch.Size = new Size(99, 30);
+            buttonSearch.TabIndex = 1;
+            buttonSearch.Text = "Поиск";
+            buttonSearch.UseVisualStyleBackColor = true;
+            buttonSearch.Click += button1_Click;
             // 
-            // button2
+            // buttonClose
             // 
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(201, 130);
-            button2.Name = "button2";
-            button2.Size = new Size(99, 30);
-            button2.TabIndex = 2;
-            button2.Text = "Отмена";
-            button2.UseVisualStyleBackColor = true;
+            buttonClose.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonClose.Location = new Point(201, 130);
+            buttonClose.Name = "buttonClose";
+            buttonClose.Size = new Size(99, 30);
+            buttonClose.TabIndex = 2;
+            buttonClose.Text = "Отмена";
+            buttonClose.UseVisualStyleBackColor = true;
+            buttonClose.Click += buttonClose_Click;
             // 
             // label1
             // 
@@ -81,9 +82,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(338, 191);
             Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(buttonClose);
+            Controls.Add(buttonSearch);
+            Controls.Add(textBoxSearch);
             Name = "Search";
             Text = "Поиск";
             ResumeLayout(false);
@@ -92,9 +93,9 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private Button button1;
-        private Button button2;
+        private TextBox textBoxSearch;
+        private Button buttonSearch;
+        private Button buttonClose;
         private Label label1;
     }
 }

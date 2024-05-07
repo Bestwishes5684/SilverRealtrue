@@ -17,13 +17,13 @@ namespace SilverRealtrue.ModelsAndContex
         [DisplayName ("Дата создания чека ")]
         public DateTime? DateCheck { get; set; }
 
-        [DisplayName ( "Департамент")]
+        [DisplayName ("Номер цеха")]
         public int? DepartmentCheck { get; set; }
 
-        [DisplayName ( "Норма Серебра")]
+        [DisplayName ("Норма Серебра")]
         public string NormCheck { get; set; }
 
-        [DisplayName ("тип серебра")]
+        [DisplayName ("Вид серебра")]
         public int SilverTypeCheck { get; set; }
 
         [DisplayName ("Площадь покрытия")]
