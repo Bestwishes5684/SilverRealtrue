@@ -18,5 +18,8 @@ namespace SilverRealtrue.ModelsAndContex
         public string TitleDecimal { get; set; }
 
         public virtual ICollection<Check> Check { get; set; }
+
+        public virtual ICollection<Norm> Norm { get; set; }
+
     }
 }

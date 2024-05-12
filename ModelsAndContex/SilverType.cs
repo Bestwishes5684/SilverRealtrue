@@ -21,5 +21,8 @@ namespace SilverRealtrue.ModelsAndContex
         public string TitleSilverType { get; set; }
 
         public virtual ICollection<Check> Check { get; set; }
+
+        public virtual ICollection<Norm> Norm { get; set; }
+
     }
 }

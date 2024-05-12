@@ -17,7 +17,9 @@ namespace SilverRealtrue
             using (var db = new SilverREContext())
             {
                 var show = db.Check.OrderBy(x => x.IdCheck).ToList();
-                var result = from check in db.Check.Where(x => x.IdCheck.ToString().Contains(Search.searchRequest) || Search.searchRequest == null)
+                var result = from check in db.Check.Where(x => x.OrderCheck.ToString().Contains(Search.searchRequest) 
+                             || x.DecimalCheck.ToString().Contains(Search.searchRequest) 
+                             || Search.searchRequest == null)
                              select new
                              {
                                  IdCheck = check.IdCheck,
@@ -44,12 +46,6 @@ namespace SilverRealtrue
                 dataGridSilver.Columns["AmountCheck"].HeaderText = "Количество";
                 dataGridSilver.Columns["DecimalCheck"].HeaderText = "Децимальный номер";
                 dataGridSilver.Columns["OrderCheck"].HeaderText = "Номер заказа";
-
-
-
-
-
-
             }
             // dataGridSilver.Columns["DecimalCheckNavigation"].Visible = false;
             //dataGridSilver.Columns["SilverTypeCheckNavigation"].Visible = false;

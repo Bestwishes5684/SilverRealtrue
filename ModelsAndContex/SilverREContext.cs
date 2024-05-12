@@ -22,13 +22,16 @@ namespace SilverRealtrue.ModelsAndContex
         public virtual DbSet<Check> Check { get; set; }
         public virtual DbSet<DecimalNumber> DecimalNumber { get; set; }
         public virtual DbSet<SilverType> SilverType { get; set; }
+        public virtual DbSet<Norm> Norm { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=ORIT-14\\SQLEXPRESS; Database=SilverRE; User ID=Student ORIT; Password=DabiduN");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-DDO84UQ; Database=SilverRE; Trusted_Connection = true");
+                    //"Server=ORIT-14\\SQLEXPRESS; Database=SilverRE; User ID=Student ORIT; Password=DabiduN");
                     //"DESKTOP-T9MJ8MA\\SQLEXPRESS; database=SilverRE; integrated Security=false; Trusted_Connection=True");
             }
         }
@@ -101,6 +104,25 @@ namespace SilverRealtrue.ModelsAndContex
                     .IsRequired()
                     .HasColumnName("Title_SilverType")
                     .HasMaxLength(60);
+            });
+
+            modelBuilder.Entity<Norm>(entity =>
+            {
+                entity.HasKey(e => e.IdNorm);
+
+                entity.Property(e => e.IdNorm).HasColumnName("ID_Norm");
+
+                entity.HasOne(d => d.DecimalNormNavigation)
+                    .WithMany(p => p.Norm)
+                    .HasForeignKey(d => d.DecimalNorm)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Norm_Decimal");
+
+                entity.HasOne(d => d.SilverTypeNormNavigation)
+                    .WithMany(p => p.Norm)
+                    .HasForeignKey(d => d.SilverTypeNorm)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Norm_SilverType");
             });
 
             OnModelCreatingPartial(modelBuilder);
