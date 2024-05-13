@@ -41,7 +41,7 @@ namespace SilverRealtrue
                 dataGridSilver.Columns["DateCheck"].HeaderText = "Дата чека";
                 dataGridSilver.Columns["DepartmentCheck"].HeaderText = "Номер цеха";
                 dataGridSilver.Columns["NormCheck"].HeaderText = "Норма серебра";
-                dataGridSilver.Columns["SilverTypeCheck"].HeaderText = "Номер чека";
+                dataGridSilver.Columns["SilverTypeCheck"].HeaderText = "Вид серебра";
                 dataGridSilver.Columns["CoverageCheck"].HeaderText = "Площадь покрытия";
                 dataGridSilver.Columns["AmountCheck"].HeaderText = "Количество";
                 dataGridSilver.Columns["DecimalCheck"].HeaderText = "Децимальный номер";
