@@ -110,6 +110,7 @@ namespace SilverRealtrue
             // 
             // buttonAdd
             // 
+            buttonAdd.DialogResult = DialogResult.OK;
             buttonAdd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             buttonAdd.Location = new Point(23, 302);
             buttonAdd.Name = "buttonAdd";

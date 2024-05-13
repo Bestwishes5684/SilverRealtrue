@@ -16,18 +16,15 @@ namespace SilverRealtrue
 {
     public partial class AddSilver : Form
     {
+        private Check editCheck;
         public AddSilver()
         {
             InitializeComponent();
 
             using (var db = new SilverREContext())
             {
-
-
-
                 comboBoxType.DataSource = db.SilverType.ToList();
                 comboBoxDecimal.DataSource = db.DecimalNumber.ToList();
-
 
                 comboBoxType.DisplayMember = nameof(SilverType.TitleSilverType);
                 comboBoxDecimal.DisplayMember = nameof(DecimalNumber.TitleDecimal);
@@ -36,38 +33,66 @@ namespace SilverRealtrue
 
         }
 
+        public AddSilver(Check check) : this()
+        {
+            buttonAdd.Text = "Редактировать";
+            Text = "Редактирование чека";
+
+            textBoxNorm.Text = check.NormCheck;
+            comboBoxDepart.SelectedItem = check.DepartmentCheck;
+            comboBoxType.SelectedItem = check.SilverTypeCheck;
+            comboBoxDecimal.SelectedItem = check.DecimalCheck;
+            maskedTextBoxCover.Text = check.CoverageCheck.ToString();
+            numericUpDownAmount.Value = Convert.ToDecimal(check.AmountCheck);
+            textBoxOrder.Text = check.OrderCheck;
+
+            editCheck = check;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             using (var db = new SilverREContext())
             {
-
-
-
-                Check newCheck = new Check
+                if (Text == "Редактирование чека")
                 {
-                    DateCheck = DateTime.Now,
-                    DepartmentCheck = Convert.ToInt32(comboBoxDepart.SelectedItem),
-                    NormCheck = textBoxNorm.Text,
-                    SilverTypeCheck = ((SilverType)comboBoxType.SelectedItem).CodeSilverType,
-                    CoverageCheck = Convert.ToDecimal(maskedTextBoxCover.Text),
-                    AmountCheck = Convert.ToInt32(numericUpDownAmount.Value),
-                    DecimalCheck = ((DecimalNumber)comboBoxDecimal.SelectedItem).IdDecimal,
-                    OrderCheck = textBoxOrder.Text
-                };
+                    editCheck.NormCheck = textBoxNorm.Text;
+                    editCheck.OrderCheck = textBoxOrder.Text;
+                    editCheck.DecimalCheck = ((DecimalNumber)comboBoxDecimal.SelectedItem).IdDecimal;
+                    editCheck.CoverageCheck = Convert.ToDecimal(maskedTextBoxCover.Text);
+                    editCheck.SilverTypeCheck = ((SilverType)comboBoxType.SelectedItem).CodeSilverType;
+                    editCheck.DepartmentCheck = Convert.ToInt32(comboBoxDepart.SelectedItem);
+                    editCheck.AmountCheck = Convert.ToInt32(numericUpDownAmount.Value);
 
-                db.Check.Add(newCheck);
-                db.SaveChanges();
+                    db.Check.Update(editCheck);
+                    db.SaveChanges();
 
-                MessageBox.Show("Успешное добавление");
+                    MessageBox.Show($"Успешное редактирование чека №{editCheck.IdCheck}");
 
-                this.Close();
+                }
+                else
+                {
+                    Check newCheck = new Check
+                    {
+                        DateCheck = DateTime.Now,
+                        DepartmentCheck = Convert.ToInt32(comboBoxDepart.SelectedItem),
+                        NormCheck = textBoxNorm.Text,
+                        SilverTypeCheck = ((SilverType)comboBoxType.SelectedItem).CodeSilverType,
+                        CoverageCheck = Convert.ToDecimal(maskedTextBoxCover.Text),
+                        AmountCheck = Convert.ToInt32(numericUpDownAmount.Value),
+                        DecimalCheck = ((DecimalNumber)comboBoxDecimal.SelectedItem).IdDecimal,
+                        OrderCheck = textBoxOrder.Text
+                    };
+
+                    db.Check.Add(newCheck);
+                    db.SaveChanges();
+
+                    MessageBox.Show("Успешное добавление");
+
+                    this.Close();
+                }
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         private void textBoxOrder_KeyPress(object sender, KeyPressEventArgs e)
         {

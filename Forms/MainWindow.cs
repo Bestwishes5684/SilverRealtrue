@@ -17,9 +17,10 @@ namespace SilverRealtrue
             using (var db = new SilverREContext())
             {
                 var show = db.Check.OrderBy(x => x.IdCheck).ToList();
-                var result = from check in db.Check.Where(x => x.OrderCheck.ToString().Contains(Search.searchRequest) 
-                             || x.DecimalCheck.ToString().Contains(Search.searchRequest) 
-                             || Search.searchRequest == null)
+                var result = from check in db.Check
+                             .Where(x => x.OrderCheck.Contains(Search.searchRequest)
+                                || x.DecimalCheckNavigation.TitleDecimal.Contains(Search.searchRequest)
+                                || Search.searchRequest == null)
                              select new
                              {
                                  IdCheck = check.IdCheck,
@@ -33,9 +34,8 @@ namespace SilverRealtrue
                                  OrderCheck = check.OrderCheck,
                              };
 
-
-
-                dataGridSilver.DataSource = result.ToList();
+                if (result.Any()) dataGridSilver.DataSource = result.ToList();
+                else MessageBox.Show("Не найдено ни одной записи");
 
                 dataGridSilver.Columns["IdCheck"].HeaderText = "Номер чека";
                 dataGridSilver.Columns["DateCheck"].HeaderText = "Дата чека";
@@ -47,8 +47,6 @@ namespace SilverRealtrue
                 dataGridSilver.Columns["DecimalCheck"].HeaderText = "Децимальный номер";
                 dataGridSilver.Columns["OrderCheck"].HeaderText = "Номер заказа";
             }
-            // dataGridSilver.Columns["DecimalCheckNavigation"].Visible = false;
-            //dataGridSilver.Columns["SilverTypeCheckNavigation"].Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -76,6 +74,43 @@ namespace SilverRealtrue
             Search.searchRequest = null;
 
             InitDatagrid();
+        }
+
+        private void buttonIncorrect_Click(object sender, EventArgs e)
+        {
+            using (var db = new SilverREContext())
+            {
+                var checks = db.Check.OrderBy(x => x.IdCheck).ToList();
+
+                foreach (DataGridViewRow row in dataGridSilver.Rows)
+                {
+                    var correctNorm = db.Norm.FirstOrDefault(x => x.DecimalNormNavigation.TitleDecimal == row.Cells[7].Value.ToString());
+
+                    if (correctNorm != null)
+                        if (correctNorm.TitleNorm != row.Cells[3].Value.ToString()) dataGridSilver.Rows[row.Index].DefaultCellStyle.BackColor = Color.IndianRed;
+                }
+            }
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            using (var db = new SilverREContext())
+            {
+                var selectedRow = Convert.ToInt32(dataGridSilver.Rows[dataGridSilver.SelectedRows[0].Index].Cells[0].Value);
+                var editCheck = db.Check.FirstOrDefault(x => x.IdCheck == selectedRow);
+
+                if (editCheck != null)
+                {
+                    var editForm = new AddSilver(editCheck);
+                    editForm.ShowDialog();
+                    if (editForm.DialogResult == DialogResult.OK)
+                    {
+                        InitDatagrid();
+                    }
+                }
+                else MessageBox.Show("Выберите чек для редактирования");
+            }
+
         }
     }
 }

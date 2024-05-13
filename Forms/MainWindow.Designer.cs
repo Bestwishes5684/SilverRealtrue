@@ -30,11 +30,13 @@
         {
             panel1 = new Panel();
             panel3 = new Panel();
+            buttonIncorrect = new Button();
+            buttonEdit = new Button();
+            buttonClear = new Button();
             SearchButton = new Button();
             button2 = new Button();
             panel2 = new Panel();
             dataGridSilver = new DataGridView();
-            buttonClear = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridSilver).BeginInit();
@@ -52,6 +54,8 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(buttonIncorrect);
+            panel3.Controls.Add(buttonEdit);
             panel3.Controls.Add(buttonClear);
             panel3.Controls.Add(SearchButton);
             panel3.Controls.Add(button2);
@@ -60,6 +64,42 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(199, 380);
             panel3.TabIndex = 6;
+            // 
+            // buttonIncorrect
+            // 
+            buttonIncorrect.Dock = DockStyle.Bottom;
+            buttonIncorrect.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonIncorrect.Location = new Point(0, 255);
+            buttonIncorrect.Name = "buttonIncorrect";
+            buttonIncorrect.Size = new Size(199, 43);
+            buttonIncorrect.TabIndex = 7;
+            buttonIncorrect.Text = "Некорректные нормы";
+            buttonIncorrect.UseVisualStyleBackColor = true;
+            buttonIncorrect.Click += buttonIncorrect_Click;
+            // 
+            // buttonEdit
+            // 
+            buttonEdit.Dock = DockStyle.Top;
+            buttonEdit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonEdit.Location = new Point(0, 43);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(199, 43);
+            buttonEdit.TabIndex = 6;
+            buttonEdit.Text = "Редактировать";
+            buttonEdit.UseVisualStyleBackColor = true;
+            buttonEdit.Click += buttonEdit_Click;
+            // 
+            // buttonClear
+            // 
+            buttonClear.Dock = DockStyle.Bottom;
+            buttonClear.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonClear.Location = new Point(0, 298);
+            buttonClear.Name = "buttonClear";
+            buttonClear.Size = new Size(199, 41);
+            buttonClear.TabIndex = 5;
+            buttonClear.Text = "Очистить поиск";
+            buttonClear.UseVisualStyleBackColor = true;
+            buttonClear.Click += buttonClear_Click;
             // 
             // SearchButton
             // 
@@ -101,23 +141,13 @@
             dataGridSilver.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridSilver.Dock = DockStyle.Fill;
             dataGridSilver.Location = new Point(0, 0);
+            dataGridSilver.MultiSelect = false;
             dataGridSilver.Name = "dataGridSilver";
             dataGridSilver.ReadOnly = true;
             dataGridSilver.RowTemplate.Height = 25;
+            dataGridSilver.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridSilver.Size = new Size(939, 450);
             dataGridSilver.TabIndex = 1;
-            // 
-            // buttonClear
-            // 
-            buttonClear.Dock = DockStyle.Bottom;
-            buttonClear.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonClear.Location = new Point(0, 298);
-            buttonClear.Name = "buttonClear";
-            buttonClear.Size = new Size(199, 41);
-            buttonClear.TabIndex = 5;
-            buttonClear.Text = "Очистить поиск";
-            buttonClear.UseVisualStyleBackColor = true;
-            buttonClear.Click += buttonClear_Click;
             // 
             // MainWindow
             // 
@@ -146,5 +176,7 @@
         private Panel panel3;
         private Panel panel2;
         private Button buttonClear;
+        private Button buttonIncorrect;
+        private Button buttonEdit;
     }
 }

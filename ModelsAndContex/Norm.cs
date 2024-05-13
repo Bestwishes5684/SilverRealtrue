@@ -14,7 +14,7 @@ namespace SilverRealtrue.ModelsAndContex
 
         public int SilverTypeNorm { get; set; }
 
-        public int TitleNorm { get; set; }
+        public string TitleNorm { get; set; }
 
         public int DepartmentNorm { get; set; }
 

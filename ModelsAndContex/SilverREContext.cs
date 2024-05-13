@@ -112,6 +112,19 @@ namespace SilverRealtrue.ModelsAndContex
 
                 entity.Property(e => e.IdNorm).HasColumnName("ID_Norm");
 
+                entity.Property(e => e.TitleNorm)
+                    .HasColumnName("Title_Norm")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.SilverTypeNorm)
+                    .HasColumnName("SilverType_Norm");
+
+                entity.Property(e => e.DecimalNorm)
+                    .HasColumnName("Decimal_Norm");
+
+                entity.Property(e => e.DepartmentNorm)
+                    .HasColumnName("Department_Norm");
+
                 entity.HasOne(d => d.DecimalNormNavigation)
                     .WithMany(p => p.Norm)
                     .HasForeignKey(d => d.DecimalNorm)
