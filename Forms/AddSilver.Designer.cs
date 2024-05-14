@@ -178,7 +178,8 @@ namespace SilverRealtrue
             // 
             // comboBoxDecimal
             // 
-            comboBoxDecimal.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxDecimal.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxDecimal.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxDecimal.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboBoxDecimal.FormattingEnabled = true;
             comboBoxDecimal.Location = new Point(196, 207);

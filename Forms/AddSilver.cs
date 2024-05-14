@@ -16,6 +16,7 @@ namespace SilverRealtrue
 {
     public partial class AddSilver : Form
     {
+
         private Check editCheck;
         public AddSilver()
         {
@@ -30,7 +31,6 @@ namespace SilverRealtrue
                 comboBoxDecimal.DisplayMember = nameof(DecimalNumber.TitleDecimal);
 
             }
-
         }
 
         public AddSilver(Check check) : this()
@@ -118,5 +118,7 @@ namespace SilverRealtrue
         {
             this.Close();
         }
+
+
     }
 }
