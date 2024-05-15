@@ -14,13 +14,15 @@ namespace SilverRealtrue.ModelsAndContex
 
         public int SilverTypeNorm { get; set; }
 
-        public string TitleNorm { get; set; }
+        public decimal? TitleNorm { get; set; }
 
         public int DepartmentNorm { get; set; }
 
         public virtual DecimalNumber DecimalNormNavigation { get; set; }
 
         public virtual SilverType SilverTypeNormNavigation { get; set; }
+
+        public virtual Department DepartmentNormNavigation { get; set; }
 
     }
 }

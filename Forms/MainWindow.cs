@@ -85,9 +85,10 @@ namespace SilverRealtrue
                 foreach (DataGridViewRow row in dataGridSilver.Rows)
                 {
                     var correctNorm = db.Norm.FirstOrDefault(x => x.DecimalNormNavigation.TitleDecimal == row.Cells[7].Value.ToString());
-
+                    
                     if (correctNorm != null)
-                        if (correctNorm.TitleNorm != row.Cells[3].Value.ToString()) dataGridSilver.Rows[row.Index].DefaultCellStyle.BackColor = Color.IndianRed;
+                        if (correctNorm.TitleNorm.ToString() != row.Cells[3].Value.ToString()) // Тут надо позор с ToString как то переделать
+                            dataGridSilver.Rows[row.Index].DefaultCellStyle.BackColor = Color.IndianRed;
                 }
             }
         }

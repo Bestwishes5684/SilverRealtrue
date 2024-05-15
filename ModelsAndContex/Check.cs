@@ -14,6 +14,8 @@ namespace SilverRealtrue.ModelsAndContex
         [DisplayName ("Номер чека")]
         public int IdCheck { get; set; }
 
+        public string? NumberCheck { get; set; }
+
         [DisplayName ("Дата создания чека ")]
         public DateTime? DateCheck { get; set; }
 
@@ -21,7 +23,7 @@ namespace SilverRealtrue.ModelsAndContex
         public int? DepartmentCheck { get; set; }
 
         [DisplayName ("Норма Серебра")]
-        public string NormCheck { get; set; }
+        public decimal? NormCheck { get; set; }
 
         [DisplayName ("Вид серебра")]
         public int SilverTypeCheck { get; set; }
@@ -37,7 +39,8 @@ namespace SilverRealtrue.ModelsAndContex
         public string? OrderCheck { get; set; }
 
 
-    
+        public virtual Department DepartmentCheckNavigation { get; set; }
+
         public virtual DecimalNumber DecimalCheckNavigation { get; set; }
       
         public virtual SilverType SilverTypeCheckNavigation { get; set; }

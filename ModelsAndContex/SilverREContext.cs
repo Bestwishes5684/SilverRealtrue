@@ -23,6 +23,7 @@ namespace SilverRealtrue.ModelsAndContex
         public virtual DbSet<DecimalNumber> DecimalNumber { get; set; }
         public virtual DbSet<SilverType> SilverType { get; set; }
         public virtual DbSet<Norm> Norm { get; set; }
+        public virtual DbSet<Department> Department { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -30,8 +31,9 @@ namespace SilverRealtrue.ModelsAndContex
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=ORIT-14\\SQLEXPRESS; Database=SilverRE; User ID=Student ORIT; Password=DabiduN");
-                //"Server=DESKTOP-DDO84UQ; Database=SilverRE; Trusted_Connection = true");
+                optionsBuilder.UseSqlServer("Server = DESKTOP-DDO84UQ; Database = SilverRE; Trusted_Connection = true");
+                    //"Server=ORIT-14\\SQLEXPRESS; Database=SilverRE; User ID=Student ORIT; Password=DabiduN");
+                //"
                 //
                 //"DESKTOP-T9MJ8MA\\SQLEXPRESS; database=SilverRE; integrated Security=false; Trusted_Connection=True");
             }
@@ -61,6 +63,10 @@ namespace SilverRealtrue.ModelsAndContex
 
                 entity.Property(e => e.NormCheck)
                     .HasColumnName("Norm_Check")
+                    .HasColumnType("decimal(20, 6)");
+
+                entity.Property(e => e.NumberCheck)
+                    .HasColumnName("Number_Check")
                     .HasMaxLength(50);
 
                 entity.Property(e => e.OrderCheck)
@@ -68,6 +74,12 @@ namespace SilverRealtrue.ModelsAndContex
                     .HasMaxLength(10);
 
                 entity.Property(e => e.SilverTypeCheck).HasColumnName("SilverType_Check");
+
+                entity.HasOne(d => d.DepartmentCheckNavigation)
+                    .WithMany(p => p.Check)
+                    .HasForeignKey(d => d.DepartmentCheck)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Check_Department");
 
                 entity.HasOne(d => d.DecimalCheckNavigation)
                     .WithMany(p => p.Check)
@@ -95,6 +107,18 @@ namespace SilverRealtrue.ModelsAndContex
                     .HasMaxLength(50);
             });
 
+            modelBuilder.Entity<Department>(entity =>
+            {
+                entity.HasKey(e => e.CodeDepartment);
+
+                entity.Property(e => e.CodeDepartment).HasColumnName("Code_Department");
+
+                entity.Property(e => e.IsAtWorkDepartment)
+                    .IsRequired()
+                    .HasColumnName("IsAtWork_Department")
+                    .HasColumnType("bit");
+            });
+
             modelBuilder.Entity<SilverType>(entity =>
             {
                 entity.HasKey(e => e.CodeSilverType);
@@ -115,7 +139,7 @@ namespace SilverRealtrue.ModelsAndContex
 
                 entity.Property(e => e.TitleNorm)
                     .HasColumnName("Title_Norm")
-                    .HasMaxLength(50);
+                    .HasColumnType("decimal(20, 6)");
 
                 entity.Property(e => e.SilverTypeNorm)
                     .HasColumnName("SilverType_Norm");
@@ -137,6 +161,12 @@ namespace SilverRealtrue.ModelsAndContex
                     .HasForeignKey(d => d.SilverTypeNorm)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Norm_SilverType");
+
+                entity.HasOne(d => d.DepartmentNormNavigation)
+                    .WithMany(p => p.Norm)
+                    .HasForeignKey(d => d.DepartmentNorm)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Norm_Department");
             });
 
             OnModelCreatingPartial(modelBuilder);

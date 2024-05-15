@@ -38,7 +38,7 @@ namespace SilverRealtrue
             buttonAdd.Text = "Редактировать";
             Text = "Редактирование чека";
 
-            textBoxNorm.Text = check.NormCheck;
+            textBoxNorm.Text = check.NormCheck.ToString();
             comboBoxDepart.SelectedItem = check.DepartmentCheck;
             comboBoxType.SelectedItem = check.SilverTypeCheck;
             comboBoxDecimal.SelectedItem = check.DecimalCheck;
@@ -55,7 +55,7 @@ namespace SilverRealtrue
             {
                 if (Text == "Редактирование чека")
                 {
-                    editCheck.NormCheck = textBoxNorm.Text;
+                    editCheck.NormCheck = Convert.ToDecimal(textBoxNorm.Text);
                     editCheck.OrderCheck = textBoxOrder.Text;
                     editCheck.DecimalCheck = ((DecimalNumber)comboBoxDecimal.SelectedItem).IdDecimal;
                     editCheck.CoverageCheck = Convert.ToDecimal(maskedTextBoxCover.Text);
@@ -75,7 +75,7 @@ namespace SilverRealtrue
                     {
                         DateCheck = DateTime.Now,
                         DepartmentCheck = Convert.ToInt32(comboBoxDepart.SelectedItem),
-                        NormCheck = textBoxNorm.Text,
+                        NormCheck = Convert.ToDecimal(textBoxNorm.Text),
                         SilverTypeCheck = ((SilverType)comboBoxType.SelectedItem).CodeSilverType,
                         CoverageCheck = Convert.ToDecimal(maskedTextBoxCover.Text),
                         AmountCheck = Convert.ToInt32(numericUpDownAmount.Value),
