@@ -16,7 +16,6 @@ namespace SilverRealtrue
 {
     public partial class AddSilver : Form
     {
-
         private Check editCheck;
         public AddSilver()
         {
@@ -24,9 +23,11 @@ namespace SilverRealtrue
 
             using (var db = new SilverREContext())
             {
+                comboBoxDepart.DataSource = db.Department.Where(x => x.IsAtWorkDepartment == true).ToList();
                 comboBoxType.DataSource = db.SilverType.ToList();
                 comboBoxDecimal.DataSource = db.DecimalNumber.ToList();
 
+                comboBoxDepart.DisplayMember = nameof(Department.CodeDepartment);
                 comboBoxType.DisplayMember = nameof(SilverType.TitleSilverType);
                 comboBoxDecimal.DisplayMember = nameof(DecimalNumber.TitleDecimal);
 
@@ -38,7 +39,8 @@ namespace SilverRealtrue
             buttonAdd.Text = "Редактировать";
             Text = "Редактирование чека";
 
-            textBoxNorm.Text = check.NormCheck.ToString();
+            maskedTextBoxCover.Text = check.NormCheck.ToString();
+            textBoxNumber.Text = check.NumberCheck;
             comboBoxDepart.SelectedItem = check.DepartmentCheck;
             comboBoxType.SelectedItem = check.SilverTypeCheck;
             comboBoxDecimal.SelectedItem = check.DecimalCheck;
@@ -55,8 +57,9 @@ namespace SilverRealtrue
             {
                 if (Text == "Редактирование чека")
                 {
-                    editCheck.NormCheck = Convert.ToDecimal(textBoxNorm.Text);
+                    editCheck.NormCheck = Convert.ToDecimal(maskedTextBoxCover.Text);
                     editCheck.OrderCheck = textBoxOrder.Text;
+                    editCheck.NumberCheck = textBoxNumber.Text;
                     editCheck.DecimalCheck = ((DecimalNumber)comboBoxDecimal.SelectedItem).IdDecimal;
                     editCheck.CoverageCheck = Convert.ToDecimal(maskedTextBoxCover.Text);
                     editCheck.SilverTypeCheck = ((SilverType)comboBoxType.SelectedItem).CodeSilverType;
@@ -75,7 +78,8 @@ namespace SilverRealtrue
                     {
                         DateCheck = DateTime.Now,
                         DepartmentCheck = Convert.ToInt32(comboBoxDepart.SelectedItem),
-                        NormCheck = Convert.ToDecimal(textBoxNorm.Text),
+                        NumberCheck = textBoxNumber.Text,
+                        NormCheck = Convert.ToDecimal(maskedTextBoxCover.Text),
                         SilverTypeCheck = ((SilverType)comboBoxType.SelectedItem).CodeSilverType,
                         CoverageCheck = Convert.ToDecimal(maskedTextBoxCover.Text),
                         AmountCheck = Convert.ToInt32(numericUpDownAmount.Value),

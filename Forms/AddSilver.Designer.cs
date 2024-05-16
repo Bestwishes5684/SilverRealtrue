@@ -38,13 +38,15 @@ namespace SilverRealtrue
             buttonAdd = new Button();
             label1 = new Label();
             comboBoxDepart = new ComboBox();
-            textBoxNorm = new TextBox();
             comboBoxType = new ComboBox();
             maskedTextBoxCover = new MaskedTextBox();
             numericUpDownAmount = new NumericUpDown();
             comboBoxDecimal = new ComboBox();
             textBoxOrder = new TextBox();
             buttonCancel = new Button();
+            maskedTextBoxNorm = new MaskedTextBox();
+            textBoxNumber = new TextBox();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)numericUpDownAmount).BeginInit();
             SuspendLayout();
             // 
@@ -52,7 +54,7 @@ namespace SilverRealtrue
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(23, 60);
+            label3.Location = new Point(23, 92);
             label3.Name = "label3";
             label3.Size = new Size(62, 21);
             label3.TabIndex = 2;
@@ -62,7 +64,7 @@ namespace SilverRealtrue
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(23, 97);
+            label4.Location = new Point(23, 129);
             label4.Name = "label4";
             label4.Size = new Size(98, 21);
             label4.TabIndex = 3;
@@ -72,7 +74,7 @@ namespace SilverRealtrue
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(23, 137);
+            label5.Location = new Point(23, 169);
             label5.Name = "label5";
             label5.Size = new Size(154, 21);
             label5.TabIndex = 4;
@@ -82,7 +84,7 @@ namespace SilverRealtrue
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(23, 173);
+            label6.Location = new Point(23, 205);
             label6.Name = "label6";
             label6.Size = new Size(97, 21);
             label6.TabIndex = 5;
@@ -92,7 +94,7 @@ namespace SilverRealtrue
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(23, 210);
+            label7.Location = new Point(23, 242);
             label7.Name = "label7";
             label7.Size = new Size(164, 21);
             label7.TabIndex = 6;
@@ -102,7 +104,7 @@ namespace SilverRealtrue
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(23, 249);
+            label8.Location = new Point(23, 281);
             label8.Name = "label8";
             label8.Size = new Size(112, 21);
             label8.TabIndex = 7;
@@ -112,7 +114,7 @@ namespace SilverRealtrue
             // 
             buttonAdd.DialogResult = DialogResult.OK;
             buttonAdd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonAdd.Location = new Point(23, 302);
+            buttonAdd.Location = new Point(23, 334);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(348, 32);
             buttonAdd.TabIndex = 16;
@@ -134,27 +136,17 @@ namespace SilverRealtrue
             // 
             comboBoxDepart.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboBoxDepart.FormattingEnabled = true;
-            comboBoxDepart.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13" });
             comboBoxDepart.Location = new Point(196, 19);
             comboBoxDepart.Name = "comboBoxDepart";
             comboBoxDepart.Size = new Size(100, 29);
             comboBoxDepart.TabIndex = 22;
-            // 
-            // textBoxNorm
-            // 
-            textBoxNorm.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxNorm.Location = new Point(196, 57);
-            textBoxNorm.Name = "textBoxNorm";
-            textBoxNorm.Size = new Size(128, 29);
-            textBoxNorm.TabIndex = 23;
-            textBoxNorm.KeyPress += textBoxNorm_KeyPress;
             // 
             // comboBoxType
             // 
             comboBoxType.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxType.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboBoxType.FormattingEnabled = true;
-            comboBoxType.Location = new Point(196, 94);
+            comboBoxType.Location = new Point(196, 126);
             comboBoxType.Name = "comboBoxType";
             comboBoxType.Size = new Size(175, 29);
             comboBoxType.TabIndex = 24;
@@ -162,7 +154,7 @@ namespace SilverRealtrue
             // maskedTextBoxCover
             // 
             maskedTextBoxCover.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            maskedTextBoxCover.Location = new Point(196, 134);
+            maskedTextBoxCover.Location = new Point(196, 166);
             maskedTextBoxCover.Mask = "0.00000";
             maskedTextBoxCover.Name = "maskedTextBoxCover";
             maskedTextBoxCover.Size = new Size(100, 29);
@@ -171,7 +163,7 @@ namespace SilverRealtrue
             // numericUpDownAmount
             // 
             numericUpDownAmount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            numericUpDownAmount.Location = new Point(196, 171);
+            numericUpDownAmount.Location = new Point(196, 203);
             numericUpDownAmount.Name = "numericUpDownAmount";
             numericUpDownAmount.Size = new Size(100, 29);
             numericUpDownAmount.TabIndex = 26;
@@ -182,7 +174,7 @@ namespace SilverRealtrue
             comboBoxDecimal.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBoxDecimal.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             comboBoxDecimal.FormattingEnabled = true;
-            comboBoxDecimal.Location = new Point(196, 207);
+            comboBoxDecimal.Location = new Point(196, 239);
             comboBoxDecimal.Name = "comboBoxDecimal";
             comboBoxDecimal.Size = new Size(175, 29);
             comboBoxDecimal.TabIndex = 27;
@@ -190,7 +182,7 @@ namespace SilverRealtrue
             // textBoxOrder
             // 
             textBoxOrder.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxOrder.Location = new Point(196, 246);
+            textBoxOrder.Location = new Point(196, 278);
             textBoxOrder.Name = "textBoxOrder";
             textBoxOrder.Size = new Size(128, 29);
             textBoxOrder.TabIndex = 28;
@@ -199,7 +191,7 @@ namespace SilverRealtrue
             // buttonCancel
             // 
             buttonCancel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonCancel.Location = new Point(23, 340);
+            buttonCancel.Location = new Point(23, 372);
             buttonCancel.MaximumSize = new Size(348, 32);
             buttonCancel.MinimumSize = new Size(348, 32);
             buttonCancel.Name = "buttonCancel";
@@ -209,18 +201,47 @@ namespace SilverRealtrue
             buttonCancel.UseVisualStyleBackColor = true;
             buttonCancel.Click += buttonCancel_Click;
             // 
+            // maskedTextBoxNorm
+            // 
+            maskedTextBoxNorm.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            maskedTextBoxNorm.Location = new Point(196, 89);
+            maskedTextBoxNorm.Mask = "0.000000";
+            maskedTextBoxNorm.Name = "maskedTextBoxNorm";
+            maskedTextBoxNorm.Size = new Size(100, 29);
+            maskedTextBoxNorm.TabIndex = 30;
+            // 
+            // textBoxNumber
+            // 
+            textBoxNumber.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxNumber.Location = new Point(196, 54);
+            textBoxNumber.Name = "textBoxNumber";
+            textBoxNumber.Size = new Size(128, 29);
+            textBoxNumber.TabIndex = 32;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(23, 57);
+            label2.Name = "label2";
+            label2.Size = new Size(112, 21);
+            label2.TabIndex = 31;
+            label2.Text = "Номер заказа ";
+            // 
             // AddSilver
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(396, 391);
+            ClientSize = new Size(396, 426);
+            Controls.Add(textBoxNumber);
+            Controls.Add(label2);
+            Controls.Add(maskedTextBoxNorm);
             Controls.Add(buttonCancel);
             Controls.Add(textBoxOrder);
             Controls.Add(comboBoxDecimal);
             Controls.Add(numericUpDownAmount);
             Controls.Add(maskedTextBoxCover);
             Controls.Add(comboBoxType);
-            Controls.Add(textBoxNorm);
             Controls.Add(comboBoxDepart);
             Controls.Add(label1);
             Controls.Add(buttonAdd);
@@ -247,12 +268,14 @@ namespace SilverRealtrue
         private Button buttonAdd;
         private Label label1;
         private ComboBox comboBoxDepart;
-        private TextBox textBoxNorm;
         private ComboBox comboBoxType;
         private MaskedTextBox maskedTextBoxCover;
         private NumericUpDown numericUpDownAmount;
         private ComboBox comboBoxDecimal;
         private TextBox textBoxOrder;
         private Button buttonCancel;
+        private MaskedTextBox maskedTextBoxNorm;
+        private TextBox textBoxNumber;
+        private Label label2;
     }
 }

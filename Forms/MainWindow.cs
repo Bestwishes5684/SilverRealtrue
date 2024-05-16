@@ -10,6 +10,8 @@ namespace SilverRealtrue
         {
             InitializeComponent();
             InitDatagrid();
+
+            checkBoxDelete.Checked = true;
         }
 
         public void InitDatagrid()
@@ -24,6 +26,7 @@ namespace SilverRealtrue
                              select new
                              {
                                  IdCheck = check.IdCheck,
+                                 NumberCheck = check.NumberCheck,
                                  DateCheck = check.DateCheck,
                                  DepartmentCheck = check.DepartmentCheck,
                                  NormCheck = check.NormCheck,
@@ -37,7 +40,8 @@ namespace SilverRealtrue
                 if (result.Any()) dataGridSilver.DataSource = result.ToList();
                 else MessageBox.Show("Не найдено ни одной записи");
 
-                dataGridSilver.Columns["IdCheck"].HeaderText = "Номер чека";
+                dataGridSilver.Columns["IdCheck"].HeaderText = "Идентификатор чека";
+                dataGridSilver.Columns["NumberCheck"].HeaderText = "Номер чека";
                 dataGridSilver.Columns["DateCheck"].HeaderText = "Дата чека";
                 dataGridSilver.Columns["DepartmentCheck"].HeaderText = "Номер цеха";
                 dataGridSilver.Columns["NormCheck"].HeaderText = "Норма серебра";
@@ -84,11 +88,11 @@ namespace SilverRealtrue
 
                 foreach (DataGridViewRow row in dataGridSilver.Rows)
                 {
-                    var correctNorm = db.Norm.FirstOrDefault(x => x.DecimalNormNavigation.TitleDecimal == row.Cells[7].Value.ToString());
-                    
+                    var correctNorm = db.Norm.FirstOrDefault(x => x.DecimalNormNavigation.TitleDecimal == row.Cells[8].Value.ToString());
+
                     if (correctNorm != null)
-                        if (correctNorm.TitleNorm.ToString() != row.Cells[3].Value.ToString()) // Тут надо позор с ToString как то переделать
-                            dataGridSilver.Rows[row.Index].DefaultCellStyle.BackColor = Color.IndianRed;
+                        if (correctNorm.TitleNorm.ToString() != row.Cells[4].Value.ToString()) // Тут надо позор с ToString как то переделать
+                            dataGridSilver.Rows[row.Index].DefaultCellStyle.BackColor = Color.IndianRed; // P.S. Decimal.Compare не работает нихуя, потому что nullable в моделях
                 }
             }
         }
@@ -97,8 +101,8 @@ namespace SilverRealtrue
         {
             using (var db = new SilverREContext())
             {
-                var selectedRow = Convert.ToInt32(dataGridSilver.Rows[dataGridSilver.SelectedRows[0].Index].Cells[0].Value);
-                var editCheck = db.Check.FirstOrDefault(x => x.IdCheck == selectedRow);
+                var selected = Convert.ToInt32(dataGridSilver.Rows[dataGridSilver.SelectedRows[0].Index].Cells[0].Value);
+                var editCheck = db.Check.FirstOrDefault(x => x.IdCheck == selected);
 
                 if (editCheck != null)
                 {
@@ -112,6 +116,40 @@ namespace SilverRealtrue
                 else MessageBox.Show("Выберите чек для редактирования");
             }
 
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            using (var db = new SilverREContext())
+            {
+                var selected = Convert.ToInt32(dataGridSilver.Rows[dataGridSilver.SelectedRows[0].Index].Cells[0].Value);
+
+                var deleteCheck = db.Check.FirstOrDefault(x => x.IdCheck == selected);
+
+                if (deleteCheck != null)
+                {
+                    DialogResult confirm;
+
+                    if (checkBoxDelete.Checked == true)
+                    confirm = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Внимание!", MessageBoxButtons.OKCancel);
+                    else confirm = DialogResult.OK;
+
+                    if (confirm == DialogResult.OK)
+                    {
+                        db.Check.Remove(deleteCheck);
+                        db.SaveChanges();
+
+                        InitDatagrid();
+                    }
+                }
+                else MessageBox.Show("Выберите запись для удаления");
+
+            }
+        }
+
+        private void checkBoxDelete_CheckedChanged(object sender, EventArgs e)
+        {
+            // Вообще было бы чётенько всю чепуху с удалением перенести в ContextMenu
         }
     }
 }

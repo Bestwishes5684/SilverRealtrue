@@ -30,6 +30,8 @@
         {
             panel1 = new Panel();
             panel3 = new Panel();
+            checkBoxDelete = new CheckBox();
+            buttonDelete = new Button();
             buttonIncorrect = new Button();
             buttonEdit = new Button();
             buttonClear = new Button();
@@ -47,13 +49,15 @@
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(939, 0);
+            panel1.Location = new Point(985, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(199, 450);
             panel1.TabIndex = 0;
             // 
             // panel3
             // 
+            panel3.Controls.Add(checkBoxDelete);
+            panel3.Controls.Add(buttonDelete);
             panel3.Controls.Add(buttonIncorrect);
             panel3.Controls.Add(buttonEdit);
             panel3.Controls.Add(buttonClear);
@@ -64,6 +68,30 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(199, 380);
             panel3.TabIndex = 6;
+            // 
+            // checkBoxDelete
+            // 
+            checkBoxDelete.AutoSize = true;
+            checkBoxDelete.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            checkBoxDelete.Location = new Point(6, 135);
+            checkBoxDelete.Name = "checkBoxDelete";
+            checkBoxDelete.Size = new Size(187, 23);
+            checkBoxDelete.TabIndex = 9;
+            checkBoxDelete.Text = "Сообщение об удалении";
+            checkBoxDelete.UseVisualStyleBackColor = true;
+            checkBoxDelete.CheckedChanged += checkBoxDelete_CheckedChanged;
+            // 
+            // buttonDelete
+            // 
+            buttonDelete.Dock = DockStyle.Top;
+            buttonDelete.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonDelete.Location = new Point(0, 86);
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.Size = new Size(199, 43);
+            buttonDelete.TabIndex = 8;
+            buttonDelete.Text = "Удалить";
+            buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // buttonIncorrect
             // 
@@ -146,22 +174,23 @@
             dataGridSilver.ReadOnly = true;
             dataGridSilver.RowTemplate.Height = 25;
             dataGridSilver.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridSilver.Size = new Size(939, 450);
+            dataGridSilver.Size = new Size(985, 450);
             dataGridSilver.TabIndex = 1;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1138, 450);
+            ClientSize = new Size(1184, 450);
             Controls.Add(dataGridSilver);
             Controls.Add(panel1);
-            MaximumSize = new Size(1154, 1000);
-            MinimumSize = new Size(1000, 400);
+            MaximumSize = new Size(1300, 1000);
+            MinimumSize = new Size(1200, 400);
             Name = "MainWindow";
             Text = "Отчёты по серебру";
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridSilver).EndInit();
             ResumeLayout(false);
         }
@@ -178,5 +207,7 @@
         private Button buttonClear;
         private Button buttonIncorrect;
         private Button buttonEdit;
+        private Button buttonDelete;
+        private CheckBox checkBoxDelete;
     }
 }
