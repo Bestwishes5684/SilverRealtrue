@@ -1,3 +1,6 @@
+using SilverRealtrue.Forms;
+using SilverRealtrue.ModelsAndContex;
+
 namespace SilverRealtrue
 {
     internal static class Program
@@ -11,7 +14,7 @@ namespace SilverRealtrue
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainWindow());
+            Application.Run(new NormForm());
         }
     }
 }
