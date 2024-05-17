@@ -29,20 +29,54 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            dataGridViewNorm = new DataGridView();
+            buttonEdit = new Button();
+            buttonDel = new Button();
             buttonADDNorm = new Button();
+            dataGridViewNorm = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewNorm).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(buttonEdit);
+            panel1.Controls.Add(buttonDel);
             panel1.Controls.Add(buttonADDNorm);
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(827, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(314, 450);
             panel1.TabIndex = 0;
+            // 
+            // buttonEdit
+            // 
+            buttonEdit.Location = new Point(36, 60);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(89, 30);
+            buttonEdit.TabIndex = 2;
+            buttonEdit.Text = "Редактровать ";
+            buttonEdit.UseVisualStyleBackColor = true;
+            buttonEdit.Click += buttonEdit_Click;
+            // 
+            // buttonDel
+            // 
+            buttonDel.Location = new Point(36, 110);
+            buttonDel.Name = "buttonDel";
+            buttonDel.Size = new Size(89, 29);
+            buttonDel.TabIndex = 1;
+            buttonDel.Text = "Удалить";
+            buttonDel.UseVisualStyleBackColor = true;
+            buttonDel.Click += buttonDel_Click;
+            // 
+            // buttonADDNorm
+            // 
+            buttonADDNorm.Location = new Point(36, 12);
+            buttonADDNorm.Name = "buttonADDNorm";
+            buttonADDNorm.Size = new Size(89, 29);
+            buttonADDNorm.TabIndex = 0;
+            buttonADDNorm.Text = "Добавить";
+            buttonADDNorm.UseVisualStyleBackColor = true;
+            buttonADDNorm.Click += buttonADDNorm_Click;
             // 
             // dataGridViewNorm
             // 
@@ -53,16 +87,6 @@
             dataGridViewNorm.RowTemplate.Height = 25;
             dataGridViewNorm.Size = new Size(827, 450);
             dataGridViewNorm.TabIndex = 1;
-            // 
-            // buttonADDNorm
-            // 
-            buttonADDNorm.Location = new Point(36, 12);
-            buttonADDNorm.Name = "buttonADDNorm";
-            buttonADDNorm.Size = new Size(82, 29);
-            buttonADDNorm.TabIndex = 0;
-            buttonADDNorm.Text = "Добавить";
-            buttonADDNorm.UseVisualStyleBackColor = true;
-            buttonADDNorm.Click += buttonADDNorm_Click;
             // 
             // NormForm
             // 
@@ -83,5 +107,7 @@
         private Panel panel1;
         private DataGridView dataGridViewNorm;
         private Button buttonADDNorm;
+        private Button buttonEdit;
+        private Button buttonDel;
     }
 }

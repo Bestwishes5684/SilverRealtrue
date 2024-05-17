@@ -13,6 +13,7 @@ namespace SilverRealtrue.Forms
 {
     public partial class AddNorm : Form
     {
+        private Norm editNorm;
         public AddNorm()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace SilverRealtrue.Forms
             using (var db = new SilverREContext())
             {
                 comboBoxDecimalNorm.DataSource = db.DecimalNumber.ToList();
-                comboBoxDepartamentNorm.DataSource = db.Department.ToList();
+                comboBoxDepartamentNorm.DataSource = db.Department.Where(x => x.IsAtWorkDepartment == true).ToList();
                 comboBoxSilverNorm.DataSource = db.SilverType.ToList();
 
                 comboBoxDecimalNorm.DisplayMember = nameof(DecimalNumber.TitleDecimal);
@@ -34,7 +35,18 @@ namespace SilverRealtrue.Forms
         }
 
 
+        public AddNorm(Norm norm) : this()
+        {
+            ADDbutton.Text = "Редактировать";
+            Text = "Редактирование нормы";
 
+            maskedTextBoxTitle.Text = norm.TitleNorm.ToString();
+            comboBoxDecimalNorm.SelectedItem=norm.DecimalNorm;
+            comboBoxDepartamentNorm.SelectedItem = norm.DepartmentNorm;
+            comboBoxSilverNorm.SelectedItem = norm.SilverTypeNorm;
+
+            editNorm = norm;
+        }
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -50,25 +62,51 @@ namespace SilverRealtrue.Forms
         {
             using (var db = new SilverREContext())
             {
-                Norm norm = new Norm
+
+                if (Text == "Редактирование нормы")
                 {
-                    DecimalNorm= ((DecimalNumber)comboBoxDecimalNorm.SelectedItem).IdDecimal,
-                    SilverTypeNorm= ((SilverType)comboBoxSilverNorm.SelectedItem).CodeSilverType,
-                    TitleNorm=Convert.ToDecimal(maskedTextBoxTitle.Text),
-                    DepartmentNorm=((Department)comboBoxDepartamentNorm.SelectedItem).CodeDepartment
+                    editNorm.TitleNorm = Convert.ToDecimal(maskedTextBoxTitle.Text);
+                    editNorm.SilverTypeNorm = ((SilverType)comboBoxSilverNorm.SelectedItem).CodeSilverType;
+                    editNorm.DecimalNorm = ((DecimalNumber)comboBoxDecimalNorm.SelectedItem).IdDecimal;
+                    editNorm.DepartmentNorm = ((Department)comboBoxDepartamentNorm.SelectedItem).CodeDepartment;
+                   
+
+                    db.Norm.Update(editNorm);
+                    db.SaveChanges();
+
+                    MessageBox.Show($"Успешное редактирование номы №{editNorm.IdNorm}");
+
+                }
+                else
+                {
+                    Norm norm = new Norm
+                    {
+                        DecimalNorm = ((DecimalNumber)comboBoxDecimalNorm.SelectedItem).IdDecimal,
+                        SilverTypeNorm = ((SilverType)comboBoxSilverNorm.SelectedItem).CodeSilverType,
+                        TitleNorm = Convert.ToDecimal(maskedTextBoxTitle.Text),
+                        DepartmentNorm = ((Department)comboBoxDepartamentNorm.SelectedItem).CodeDepartment
 
 
 
 
 
-                };
+                    };
 
 
-                db.Norm.Add(norm);
-                db.SaveChanges();
+                    db.Norm.Add(norm);
+                    db.SaveChanges();
 
-                MessageBox.Show("Успешное добавление");
+                    MessageBox.Show("Успешное добавление");
+                    this.Close();
+                }
 
+
+
+
+
+
+
+             
 
             }
 

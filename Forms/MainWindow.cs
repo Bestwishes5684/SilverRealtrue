@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SilverRealtrue.Forms;
 using SilverRealtrue.ModelsAndContex;
 using System.Windows.Forms;
 
@@ -18,9 +19,9 @@ namespace SilverRealtrue
         {
             using (var db = new SilverREContext())
             {
-                var show = db.Check.OrderBy(x => x.IdCheck).ToList();
+                //var show = db.Check.OrderBy(x => x.IdCheck).ToList();
                 var result = from check in db.Check
-                             .Where(x => x.OrderCheck.Contains(Search.searchRequest)
+                             .Where(x => x.NumberCheck.Contains(Search.searchRequest)
                                 || x.DecimalCheckNavigation.TitleDecimal.Contains(Search.searchRequest)
                                 || Search.searchRequest == null)
                              select new
@@ -37,8 +38,17 @@ namespace SilverRealtrue
                                  OrderCheck = check.OrderCheck,
                              };
 
-                if (result.Any()) dataGridSilver.DataSource = result.ToList();
-                else MessageBox.Show("Не найдено ни одной записи");
+
+
+                if (result.Any())
+                {
+                    dataGridSilver.DataSource = result.ToList();
+                }
+
+                else
+                {
+                    MessageBox.Show("Не найдено ни одной записи");
+                }
 
                 dataGridSilver.Columns["IdCheck"].HeaderText = "Идентификатор чека";
                 dataGridSilver.Columns["NumberCheck"].HeaderText = "Номер чека";
@@ -131,7 +141,7 @@ namespace SilverRealtrue
                     DialogResult confirm;
 
                     if (checkBoxDelete.Checked == true)
-                    confirm = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Внимание!", MessageBoxButtons.OKCancel);
+                        confirm = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Внимание!", MessageBoxButtons.OKCancel);
                     else confirm = DialogResult.OK;
 
                     if (confirm == DialogResult.OK)
@@ -150,6 +160,12 @@ namespace SilverRealtrue
         private void checkBoxDelete_CheckedChanged(object sender, EventArgs e)
         {
             // Вообще было бы чётенько всю чепуху с удалением перенести в ContextMenu
+        }
+
+        private void buttonNormTB_Click(object sender, EventArgs e)
+        {
+            NormForm normForm = new NormForm();
+            normForm.ShowDialog();
         }
     }
 }

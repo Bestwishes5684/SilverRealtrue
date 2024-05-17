@@ -39,6 +39,7 @@
             button2 = new Button();
             panel2 = new Panel();
             dataGridSilver = new DataGridView();
+            buttonNormTB = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridSilver).BeginInit();
@@ -56,6 +57,7 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(buttonNormTB);
             panel3.Controls.Add(checkBoxDelete);
             panel3.Controls.Add(buttonDelete);
             panel3.Controls.Add(buttonIncorrect);
@@ -177,6 +179,18 @@
             dataGridSilver.Size = new Size(985, 450);
             dataGridSilver.TabIndex = 1;
             // 
+            // buttonNormTB
+            // 
+            buttonNormTB.Dock = DockStyle.Top;
+            buttonNormTB.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonNormTB.Location = new Point(0, 129);
+            buttonNormTB.Name = "buttonNormTB";
+            buttonNormTB.Size = new Size(199, 43);
+            buttonNormTB.TabIndex = 10;
+            buttonNormTB.Text = "Таблица с нормами";
+            buttonNormTB.UseVisualStyleBackColor = true;
+            buttonNormTB.Click += buttonNormTB_Click;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -209,5 +223,6 @@
         private Button buttonEdit;
         private Button buttonDelete;
         private CheckBox checkBoxDelete;
+        private Button buttonNormTB;
     }
 }

@@ -45,36 +45,36 @@
             label1.AutoSize = true;
             label1.Location = new Point(57, 38);
             label1.Name = "label1";
-            label1.Size = new Size(81, 15);
+            label1.Size = new Size(128, 15);
             label1.TabIndex = 0;
-            label1.Text = "DecimalNorm";
+            label1.Text = "Децимальный номер ";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(57, 75);
             label2.Name = "label2";
-            label2.Size = new Size(90, 15);
+            label2.Size = new Size(75, 15);
             label2.TabIndex = 1;
-            label2.Text = "SilverTypeNorm";
+            label2.Text = "Тип серебра";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(57, 116);
+            label3.Location = new Point(57, 123);
             label3.Name = "label3";
-            label3.Size = new Size(60, 15);
+            label3.Size = new Size(45, 15);
             label3.TabIndex = 2;
-            label3.Text = "TitleNorm";
+            label3.Text = "Норма";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(57, 158);
             label4.Name = "label4";
-            label4.Size = new Size(101, 15);
+            label4.Size = new Size(28, 15);
             label4.TabIndex = 3;
-            label4.Text = "DepartmentNorm";
+            label4.Text = "Цех";
             label4.Click += label4_Click;
             // 
             // ADDbutton

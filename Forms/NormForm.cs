@@ -24,14 +24,38 @@ namespace SilverRealtrue.Forms
         {
             using (var db = new SilverREContext())
             {
-                dataGridViewNorm.DataSource = db.Norm.ToList();
+
+                var result = from norm in db.Norm.ToList()
+
+                             select new
+                             {
+                                 IdCheck = norm.IdNorm,
+                                 TitleNorm = norm.TitleNorm,
+                                 SilverTypeCheck = db.SilverType.FirstOrDefault(x => x.CodeSilverType == norm.SilverTypeNorm).TitleSilverType,
+                                 DecimalCheck = db.DecimalNumber.FirstOrDefault(x => x.IdDecimal == norm.DecimalNorm).TitleDecimal,
+                                 DepartmentNorm = db.Department.FirstOrDefault(x => x.CodeDepartment == norm.DepartmentNorm).CodeDepartment,
+
+                             };
 
 
-                dataGridViewNorm.Columns["IdNorm"].HeaderText = "Идентификатор нормы";
-                dataGridViewNorm.Columns["DecimalNorm"].HeaderText = "Децимальный номер";
-                dataGridViewNorm.Columns["SilverTypeNorm"].HeaderText = "Тип серебра";
-                dataGridViewNorm.Columns["TitleNorm"].HeaderText = "Title_Norm";
-                dataGridViewNorm.Columns["DepartmentNorm"].HeaderText = "Department_Norm";
+
+                if (result.Any())
+                {
+                    dataGridViewNorm.DataSource = result.ToList();
+                }
+
+                else
+                {
+                    MessageBox.Show("Не найдено ни одной записи");
+                }
+
+
+
+                /*  dataGridViewNorm.Columns["IdNorm"].HeaderText = "Идентификатор нормы";
+                  dataGridViewNorm.Columns["DecimalNorm"].HeaderText = "Децимальный номер";
+                  dataGridViewNorm.Columns["SilverTypeNorm"].HeaderText = "Тип серебра";
+                  dataGridViewNorm.Columns["TitleNorm"].HeaderText = "Title_Norm";
+                  dataGridViewNorm.Columns["DepartmentNorm"].HeaderText = "Department_Norm";*/
 
 
             }
@@ -39,9 +63,58 @@ namespace SilverRealtrue.Forms
 
         private void buttonADDNorm_Click(object sender, EventArgs e)
         {
-            AddNorm addNorm = new AddNorm();    
-            
+            AddNorm addNorm = new AddNorm();
+
             addNorm.ShowDialog();
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            using (var db = new SilverREContext())
+            {
+                var selected = Convert.ToInt32(dataGridViewNorm.Rows[dataGridViewNorm.SelectedRows[0].Index].Cells[0].Value);
+                var editNorm = db.Norm.FirstOrDefault(x => x.IdNorm == selected);
+
+                if (editNorm != null)
+                {
+                    var editForm = new AddNorm(editNorm);
+                    editForm.ShowDialog();
+                    if (editForm.DialogResult == DialogResult.OK)
+                    {
+                        initDatagridNorm();
+                    }
+                }
+                else MessageBox.Show("Выберите норму для редактирования");
+            }
+        }
+
+        private void buttonDel_Click(object sender, EventArgs e)
+        {
+            using (var db = new SilverREContext())
+            {
+                var selected = Convert.ToInt32(dataGridViewNorm.Rows[dataGridViewNorm.SelectedRows[0].Index].Cells[0].Value);
+
+                var deleteNorm = db.Norm.FirstOrDefault(x => x.IdNorm == selected);
+                      
+                if (deleteNorm != null)
+                {
+                    DialogResult confirm;
+
+                   
+                  confirm = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Внимание!", MessageBoxButtons.OKCancel);
+                  
+
+                    if (confirm == DialogResult.OK)
+                    {
+                        db.Norm.Remove(deleteNorm);
+                        db.SaveChanges();
+
+                        initDatagridNorm();
+                    }
+                }
+                else MessageBox.Show("Выберите запись для удаления");
+
+            }
         }
     }
 }
