@@ -29,10 +29,10 @@ namespace SilverRealtrue.Forms
 
                              select new
                              {
-                                 IdCheck = norm.IdNorm,
+                                 IdNorm = norm.IdNorm,
                                  TitleNorm = norm.TitleNorm,
-                                 SilverTypeCheck = db.SilverType.FirstOrDefault(x => x.CodeSilverType == norm.SilverTypeNorm).TitleSilverType,
-                                 DecimalCheck = db.DecimalNumber.FirstOrDefault(x => x.IdDecimal == norm.DecimalNorm).TitleDecimal,
+                                 SilverTypeNorm = db.SilverType.FirstOrDefault(x => x.CodeSilverType == norm.SilverTypeNorm).TitleSilverType,
+                                 DecimalNorm = db.DecimalNumber.FirstOrDefault(x => x.IdDecimal == norm.DecimalNorm).TitleDecimal,
                                  DepartmentNorm = db.Department.FirstOrDefault(x => x.CodeDepartment == norm.DepartmentNorm).CodeDepartment,
 
                              };
@@ -51,11 +51,11 @@ namespace SilverRealtrue.Forms
 
 
 
-                /*  dataGridViewNorm.Columns["IdNorm"].HeaderText = "Идентификатор нормы";
-                  dataGridViewNorm.Columns["DecimalNorm"].HeaderText = "Децимальный номер";
-                  dataGridViewNorm.Columns["SilverTypeNorm"].HeaderText = "Тип серебра";
-                  dataGridViewNorm.Columns["TitleNorm"].HeaderText = "Title_Norm";
-                  dataGridViewNorm.Columns["DepartmentNorm"].HeaderText = "Department_Norm";*/
+                  dataGridViewNorm.Columns["IdNorm"].HeaderText = "Идентификатор нормы";
+                   dataGridViewNorm.Columns["TitleNorm"].HeaderText = "Норма";
+                 dataGridViewNorm.Columns["SilverTypeNorm"].HeaderText = "Тип серебра";
+                   dataGridViewNorm.Columns["DecimalNorm"].HeaderText = "Децимальный номер";
+                   dataGridViewNorm.Columns["DepartmentNorm"].HeaderText = "Цех";
 
 
             }

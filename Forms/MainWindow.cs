@@ -101,8 +101,9 @@ namespace SilverRealtrue
                     var correctNorm = db.Norm.FirstOrDefault(x => x.DecimalNormNavigation.TitleDecimal == row.Cells[8].Value.ToString());
 
                     if (correctNorm != null)
-                        if (correctNorm.TitleNorm.ToString() != row.Cells[4].Value.ToString()) // “ут надо позор с ToString как то переделать
-                            dataGridSilver.Rows[row.Index].DefaultCellStyle.BackColor = Color.IndianRed; // P.S. Decimal.Compare не работает ниху€, потому что nullable в модел€х
+                        if (correctNorm.TitleNorm.ToString() != row.Cells[4].Value.ToString()
+                            || correctNorm.SilverTypeNorm.ToString() != row.Cells[5].Value.ToString()) // “ут надо позор с ToString как то переделать
+                            dataGridSilver.Rows[row.Index].DefaultCellStyle.BackColor = Color.IndianRed; // P.S. Decimal.Compare не работает, потому что nullable в модел€х
                 }
             }
         }

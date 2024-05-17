@@ -150,6 +150,7 @@ namespace SilverRealtrue
             comboBoxType.Name = "comboBoxType";
             comboBoxType.Size = new Size(175, 29);
             comboBoxType.TabIndex = 24;
+            comboBoxType.SelectedIndexChanged += comboBoxType_SelectedIndexChanged;
             // 
             // maskedTextBoxCover
             // 

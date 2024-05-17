@@ -42,7 +42,7 @@ namespace SilverRealtrue
             maskedTextBoxCover.Text = check.NormCheck.ToString();
             textBoxNumber.Text = check.NumberCheck;
             comboBoxDepart.SelectedItem = check.DepartmentCheck;
-            comboBoxType.SelectedItem = check.SilverTypeCheck;
+            comboBoxType.Text = check.SilverTypeCheck.ToString();
             comboBoxDecimal.SelectedItem = check.DecimalCheck;
             maskedTextBoxCover.Text = check.CoverageCheck.ToString();
             numericUpDownAmount.Value = Convert.ToDecimal(check.AmountCheck);
@@ -123,6 +123,9 @@ namespace SilverRealtrue
             this.Close();
         }
 
-
+        private void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
