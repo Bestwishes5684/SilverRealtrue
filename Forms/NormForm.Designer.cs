@@ -33,26 +33,30 @@
             buttonDel = new Button();
             buttonADDNorm = new Button();
             dataGridViewNorm = new DataGridView();
+            panel2 = new Panel();
+            panel3 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewNorm).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(buttonEdit);
-            panel1.Controls.Add(buttonDel);
-            panel1.Controls.Add(buttonADDNorm);
+            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(827, 0);
+            panel1.Location = new Point(635, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(314, 450);
+            panel1.Size = new Size(201, 450);
             panel1.TabIndex = 0;
             // 
             // buttonEdit
             // 
-            buttonEdit.Location = new Point(36, 60);
+            buttonEdit.Dock = DockStyle.Top;
+            buttonEdit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonEdit.Location = new Point(0, 80);
             buttonEdit.Name = "buttonEdit";
-            buttonEdit.Size = new Size(89, 30);
+            buttonEdit.Size = new Size(201, 41);
             buttonEdit.TabIndex = 2;
             buttonEdit.Text = "Редактровать ";
             buttonEdit.UseVisualStyleBackColor = true;
@@ -60,9 +64,11 @@
             // 
             // buttonDel
             // 
-            buttonDel.Location = new Point(36, 110);
+            buttonDel.Dock = DockStyle.Top;
+            buttonDel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonDel.Location = new Point(0, 40);
             buttonDel.Name = "buttonDel";
-            buttonDel.Size = new Size(89, 29);
+            buttonDel.Size = new Size(201, 40);
             buttonDel.TabIndex = 1;
             buttonDel.Text = "Удалить";
             buttonDel.UseVisualStyleBackColor = true;
@@ -70,9 +76,11 @@
             // 
             // buttonADDNorm
             // 
-            buttonADDNorm.Location = new Point(36, 12);
+            buttonADDNorm.Dock = DockStyle.Top;
+            buttonADDNorm.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonADDNorm.Location = new Point(0, 0);
             buttonADDNorm.Name = "buttonADDNorm";
-            buttonADDNorm.Size = new Size(89, 29);
+            buttonADDNorm.Size = new Size(201, 40);
             buttonADDNorm.TabIndex = 0;
             buttonADDNorm.Text = "Добавить";
             buttonADDNorm.UseVisualStyleBackColor = true;
@@ -80,25 +88,46 @@
             // 
             // dataGridViewNorm
             // 
+            dataGridViewNorm.BackgroundColor = SystemColors.ControlLight;
             dataGridViewNorm.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewNorm.Dock = DockStyle.Fill;
             dataGridViewNorm.Location = new Point(0, 0);
             dataGridViewNorm.Name = "dataGridViewNorm";
             dataGridViewNorm.RowTemplate.Height = 25;
-            dataGridViewNorm.Size = new Size(827, 450);
+            dataGridViewNorm.Size = new Size(635, 450);
             dataGridViewNorm.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(201, 66);
+            panel2.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(buttonEdit);
+            panel3.Controls.Add(buttonDel);
+            panel3.Controls.Add(buttonADDNorm);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(0, 66);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(201, 384);
+            panel3.TabIndex = 4;
             // 
             // NormForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1141, 450);
+            ClientSize = new Size(836, 450);
             Controls.Add(dataGridViewNorm);
             Controls.Add(panel1);
             Name = "NormForm";
-            Text = "Таблица Норм";
+            Text = "Нормы";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewNorm).EndInit();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -109,5 +138,7 @@
         private Button buttonADDNorm;
         private Button buttonEdit;
         private Button buttonDel;
+        private Panel panel2;
+        private Panel panel3;
     }
 }

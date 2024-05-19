@@ -31,8 +31,8 @@ namespace SilverRealtrue.ModelsAndContex
             if (!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseSqlServer("Server=ORIT-14\\SQLEXPRESS; Database=SilverRE; User ID=Student ORIT; Password=DabiduN");
-                //"Server=DESKTOP-T9MJ8MA\\SQLEXPRESS; database=SilverRE; integrated Security=false; Trusted_Connection=True");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-DDO84UQ; Database=SilverRE; Trusted_Connection=true");
+                //"Server=DESKTOP-DDO84UQ; Database=SilverRE; Trusted_Connection=true");
                 //"Server=ORIT-14\\SQLEXPRESS; Database=SilverRE; User ID=Student ORIT; Password=DabiduN");
                 //"DESKTOP-T9MJ8MA\\SQLEXPRESS; database=SilverRE; integrated Security=false; Trusted_Connection=True");
             }

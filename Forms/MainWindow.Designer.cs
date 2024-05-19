@@ -30,6 +30,8 @@
         {
             panel1 = new Panel();
             panel3 = new Panel();
+            buttonDecimalDict = new Button();
+            buttonNormTB = new Button();
             checkBoxDelete = new CheckBox();
             buttonDelete = new Button();
             buttonIncorrect = new Button();
@@ -39,7 +41,6 @@
             button2 = new Button();
             panel2 = new Panel();
             dataGridSilver = new DataGridView();
-            buttonNormTB = new Button();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridSilver).BeginInit();
@@ -57,6 +58,7 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(buttonDecimalDict);
             panel3.Controls.Add(buttonNormTB);
             panel3.Controls.Add(checkBoxDelete);
             panel3.Controls.Add(buttonDelete);
@@ -70,6 +72,30 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(199, 380);
             panel3.TabIndex = 6;
+            // 
+            // buttonDecimalDict
+            // 
+            buttonDecimalDict.Dock = DockStyle.Top;
+            buttonDecimalDict.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonDecimalDict.Location = new Point(0, 172);
+            buttonDecimalDict.Name = "buttonDecimalDict";
+            buttonDecimalDict.Size = new Size(199, 51);
+            buttonDecimalDict.TabIndex = 11;
+            buttonDecimalDict.Text = "Справочник дец номеров";
+            buttonDecimalDict.UseVisualStyleBackColor = true;
+            buttonDecimalDict.Click += buttonDecimalDict_Click;
+            // 
+            // buttonNormTB
+            // 
+            buttonNormTB.Dock = DockStyle.Top;
+            buttonNormTB.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonNormTB.Location = new Point(0, 129);
+            buttonNormTB.Name = "buttonNormTB";
+            buttonNormTB.Size = new Size(199, 43);
+            buttonNormTB.TabIndex = 10;
+            buttonNormTB.Text = "Таблица с нормами";
+            buttonNormTB.UseVisualStyleBackColor = true;
+            buttonNormTB.Click += buttonNormTB_Click;
             // 
             // checkBoxDelete
             // 
@@ -179,18 +205,6 @@
             dataGridSilver.Size = new Size(985, 450);
             dataGridSilver.TabIndex = 1;
             // 
-            // buttonNormTB
-            // 
-            buttonNormTB.Dock = DockStyle.Top;
-            buttonNormTB.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonNormTB.Location = new Point(0, 129);
-            buttonNormTB.Name = "buttonNormTB";
-            buttonNormTB.Size = new Size(199, 43);
-            buttonNormTB.TabIndex = 10;
-            buttonNormTB.Text = "Таблица с нормами";
-            buttonNormTB.UseVisualStyleBackColor = true;
-            buttonNormTB.Click += buttonNormTB_Click;
-            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -224,5 +238,6 @@
         private Button buttonDelete;
         private CheckBox checkBoxDelete;
         private Button buttonNormTB;
+        private Button buttonDecimalDict;
     }
 }

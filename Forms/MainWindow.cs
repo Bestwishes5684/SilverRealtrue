@@ -168,5 +168,11 @@ namespace SilverRealtrue
             NormForm normForm = new NormForm();
             normForm.ShowDialog();
         }
+
+        private void buttonDecimalDict_Click(object sender, EventArgs e)
+        {
+            DecimalDictForm decForm = new DecimalDictForm();
+            decForm.ShowDialog();
+        }
     }
 }

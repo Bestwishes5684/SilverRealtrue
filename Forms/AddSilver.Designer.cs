@@ -47,6 +47,8 @@ namespace SilverRealtrue
             maskedTextBoxNorm = new MaskedTextBox();
             textBoxNumber = new TextBox();
             label2 = new Label();
+            dateTimePicker1 = new DateTimePicker();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)numericUpDownAmount).BeginInit();
             SuspendLayout();
             // 
@@ -114,7 +116,7 @@ namespace SilverRealtrue
             // 
             buttonAdd.DialogResult = DialogResult.OK;
             buttonAdd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonAdd.Location = new Point(23, 334);
+            buttonAdd.Location = new Point(23, 364);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(348, 32);
             buttonAdd.TabIndex = 16;
@@ -192,7 +194,7 @@ namespace SilverRealtrue
             // buttonCancel
             // 
             buttonCancel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonCancel.Location = new Point(23, 372);
+            buttonCancel.Location = new Point(23, 402);
             buttonCancel.MaximumSize = new Size(348, 32);
             buttonCancel.MinimumSize = new Size(348, 32);
             buttonCancel.Name = "buttonCancel";
@@ -225,15 +227,36 @@ namespace SilverRealtrue
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(23, 57);
             label2.Name = "label2";
-            label2.Size = new Size(112, 21);
+            label2.Size = new Size(95, 21);
             label2.TabIndex = 31;
-            label2.Text = "Номер заказа ";
+            label2.Text = "Номер чека";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.CalendarFont = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePicker1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePicker1.Location = new Point(196, 317);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(175, 29);
+            dateTimePicker1.TabIndex = 33;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(27, 323);
+            label9.Name = "label9";
+            label9.Size = new Size(94, 21);
+            label9.TabIndex = 34;
+            label9.Text = "Месяц чека";
             // 
             // AddSilver
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(396, 426);
+            ClientSize = new Size(396, 447);
+            Controls.Add(label9);
+            Controls.Add(dateTimePicker1);
             Controls.Add(textBoxNumber);
             Controls.Add(label2);
             Controls.Add(maskedTextBoxNorm);
@@ -278,5 +301,7 @@ namespace SilverRealtrue
         private MaskedTextBox maskedTextBoxNorm;
         private TextBox textBoxNumber;
         private Label label2;
+        private DateTimePicker dateTimePicker1;
+        private Label label9;
     }
 }

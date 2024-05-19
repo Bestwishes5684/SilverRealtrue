@@ -76,7 +76,7 @@ namespace SilverRealtrue
                 {
                     Check newCheck = new Check
                     {
-                        DateCheck = DateTime.Now,
+                        DateCheck = dateTimePicker1.Value,
                         DepartmentCheck = Convert.ToInt32(comboBoxDepart.SelectedItem),
                         NumberCheck = textBoxNumber.Text,
                         NormCheck = Convert.ToDecimal(maskedTextBoxCover.Text),

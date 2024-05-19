@@ -40,7 +40,7 @@
             textBoxSearch.Location = new Point(31, 60);
             textBoxSearch.Multiline = true;
             textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.Size = new Size(269, 31);
+            textBoxSearch.Size = new Size(273, 31);
             textBoxSearch.TabIndex = 0;
             // 
             // buttonSearch
@@ -58,7 +58,7 @@
             // buttonClose
             // 
             buttonClose.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonClose.Location = new Point(201, 130);
+            buttonClose.Location = new Point(205, 130);
             buttonClose.Name = "buttonClose";
             buttonClose.Size = new Size(99, 30);
             buttonClose.TabIndex = 2;
@@ -72,9 +72,9 @@
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(31, 25);
             label1.Name = "label1";
-            label1.Size = new Size(171, 21);
+            label1.Size = new Size(273, 21);
             label1.TabIndex = 3;
-            label1.Text = "Поиск по номеру чека";
+            label1.Text = "Поиск по номеру чека и дец номеру";
             // 
             // Search
             // 
