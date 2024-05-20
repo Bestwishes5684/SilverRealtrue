@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            dataGridDecimal = new DataGridView();
-            textBoxSearch = new TextBox();
-            panel2 = new Panel();
             panel3 = new Panel();
-            button1 = new Button();
-            buttonAdd = new Button();
-            buttonEdit = new Button();
             buttonDelete = new Button();
+            buttonEdit = new Button();
+            buttonAdd = new Button();
+            panel2 = new Panel();
+            buttonSearch = new Button();
+            textBoxSearch = new TextBox();
+            dataGridDecimal = new DataGridView();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridDecimal).BeginInit();
-            panel2.SuspendLayout();
             panel3.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridDecimal).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -53,36 +53,6 @@
             panel1.Size = new Size(287, 171);
             panel1.TabIndex = 0;
             // 
-            // dataGridDecimal
-            // 
-            dataGridDecimal.BackgroundColor = SystemColors.ControlLight;
-            dataGridDecimal.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridDecimal.Dock = DockStyle.Fill;
-            dataGridDecimal.Location = new Point(0, 0);
-            dataGridDecimal.Name = "dataGridDecimal";
-            dataGridDecimal.RowTemplate.Height = 25;
-            dataGridDecimal.Size = new Size(287, 300);
-            dataGridDecimal.TabIndex = 1;
-            // 
-            // textBoxSearch
-            // 
-            textBoxSearch.Dock = DockStyle.Top;
-            textBoxSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxSearch.Location = new Point(0, 0);
-            textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.Size = new Size(287, 29);
-            textBoxSearch.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(textBoxSearch);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(287, 66);
-            panel2.TabIndex = 1;
-            // 
             // panel3
             // 
             panel3.Controls.Add(buttonDelete);
@@ -93,39 +63,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(287, 105);
             panel3.TabIndex = 2;
-            // 
-            // button1
-            // 
-            button1.Dock = DockStyle.Top;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(0, 29);
-            button1.Name = "button1";
-            button1.Size = new Size(287, 34);
-            button1.TabIndex = 1;
-            button1.Text = "Поиск";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // buttonAdd
-            // 
-            buttonAdd.Dock = DockStyle.Top;
-            buttonAdd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonAdd.Location = new Point(0, 0);
-            buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(287, 34);
-            buttonAdd.TabIndex = 0;
-            buttonAdd.Text = "Добавить";
-            buttonAdd.UseVisualStyleBackColor = true;
-            // 
-            // buttonEdit
-            // 
-            buttonEdit.Dock = DockStyle.Top;
-            buttonEdit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonEdit.Location = new Point(0, 34);
-            buttonEdit.Name = "buttonEdit";
-            buttonEdit.Size = new Size(287, 34);
-            buttonEdit.TabIndex = 1;
-            buttonEdit.Text = "Редактировать";
-            buttonEdit.UseVisualStyleBackColor = true;
             // 
             // buttonDelete
             // 
@@ -138,6 +75,72 @@
             buttonDelete.Text = "Удалить";
             buttonDelete.UseVisualStyleBackColor = true;
             // 
+            // buttonEdit
+            // 
+            buttonEdit.Dock = DockStyle.Top;
+            buttonEdit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonEdit.Location = new Point(0, 34);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(287, 34);
+            buttonEdit.TabIndex = 1;
+            buttonEdit.Text = "Редактировать";
+            buttonEdit.UseVisualStyleBackColor = true;
+            buttonEdit.Click += buttonEdit_Click;
+            // 
+            // buttonAdd
+            // 
+            buttonAdd.Dock = DockStyle.Top;
+            buttonAdd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAdd.Location = new Point(0, 0);
+            buttonAdd.Name = "buttonAdd";
+            buttonAdd.Size = new Size(287, 34);
+            buttonAdd.TabIndex = 0;
+            buttonAdd.Text = "Добавить";
+            buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.Click += buttonAdd_Click;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(buttonSearch);
+            panel2.Controls.Add(textBoxSearch);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(287, 66);
+            panel2.TabIndex = 1;
+            // 
+            // buttonSearch
+            // 
+            buttonSearch.Dock = DockStyle.Top;
+            buttonSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonSearch.Location = new Point(0, 29);
+            buttonSearch.Name = "buttonSearch";
+            buttonSearch.Size = new Size(287, 34);
+            buttonSearch.TabIndex = 1;
+            buttonSearch.Text = "Поиск";
+            buttonSearch.UseVisualStyleBackColor = true;
+            buttonSearch.Click += buttonSearch_Click;
+            // 
+            // textBoxSearch
+            // 
+            textBoxSearch.Dock = DockStyle.Top;
+            textBoxSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxSearch.Location = new Point(0, 0);
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.Size = new Size(287, 29);
+            textBoxSearch.TabIndex = 0;
+            // 
+            // dataGridDecimal
+            // 
+            dataGridDecimal.BackgroundColor = SystemColors.ControlLight;
+            dataGridDecimal.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridDecimal.Dock = DockStyle.Fill;
+            dataGridDecimal.Location = new Point(0, 0);
+            dataGridDecimal.Name = "dataGridDecimal";
+            dataGridDecimal.RowTemplate.Height = 25;
+            dataGridDecimal.Size = new Size(287, 300);
+            dataGridDecimal.TabIndex = 1;
+            // 
             // DecimalDictForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -148,10 +151,10 @@
             Name = "DecimalDictForm";
             Text = "Справочник дец номеров";
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridDecimal).EndInit();
+            panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridDecimal).EndInit();
             ResumeLayout(false);
         }
 
@@ -162,7 +165,7 @@
         private TextBox textBoxSearch;
         private Panel panel2;
         private Panel panel3;
-        private Button button1;
+        private Button buttonSearch;
         private Button buttonDelete;
         private Button buttonEdit;
         private Button buttonAdd;
