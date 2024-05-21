@@ -51,9 +51,9 @@
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(985, 0);
+            panel1.Location = new Point(1035, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(199, 450);
+            panel1.Size = new Size(199, 441);
             panel1.TabIndex = 0;
             // 
             // panel3
@@ -202,14 +202,14 @@
             dataGridSilver.ReadOnly = true;
             dataGridSilver.RowTemplate.Height = 25;
             dataGridSilver.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridSilver.Size = new Size(985, 450);
+            dataGridSilver.Size = new Size(1035, 441);
             dataGridSilver.TabIndex = 1;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 450);
+            ClientSize = new Size(1234, 441);
             Controls.Add(dataGridSilver);
             Controls.Add(panel1);
             MaximumSize = new Size(1300, 1000);

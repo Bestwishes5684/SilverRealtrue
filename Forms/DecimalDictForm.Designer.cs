@@ -50,7 +50,7 @@
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 300);
             panel1.Name = "panel1";
-            panel1.Size = new Size(287, 171);
+            panel1.Size = new Size(259, 171);
             panel1.TabIndex = 0;
             // 
             // panel3
@@ -61,7 +61,7 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 66);
             panel3.Name = "panel3";
-            panel3.Size = new Size(287, 105);
+            panel3.Size = new Size(259, 105);
             panel3.TabIndex = 2;
             // 
             // buttonDelete
@@ -70,7 +70,7 @@
             buttonDelete.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             buttonDelete.Location = new Point(0, 68);
             buttonDelete.Name = "buttonDelete";
-            buttonDelete.Size = new Size(287, 34);
+            buttonDelete.Size = new Size(259, 34);
             buttonDelete.TabIndex = 2;
             buttonDelete.Text = "Удалить";
             buttonDelete.UseVisualStyleBackColor = true;
@@ -81,7 +81,7 @@
             buttonEdit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             buttonEdit.Location = new Point(0, 34);
             buttonEdit.Name = "buttonEdit";
-            buttonEdit.Size = new Size(287, 34);
+            buttonEdit.Size = new Size(259, 34);
             buttonEdit.TabIndex = 1;
             buttonEdit.Text = "Редактировать";
             buttonEdit.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@
             buttonAdd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             buttonAdd.Location = new Point(0, 0);
             buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(287, 34);
+            buttonAdd.Size = new Size(259, 34);
             buttonAdd.TabIndex = 0;
             buttonAdd.Text = "Добавить";
             buttonAdd.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(287, 66);
+            panel2.Size = new Size(259, 66);
             panel2.TabIndex = 1;
             // 
             // buttonSearch
@@ -115,7 +115,7 @@
             buttonSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             buttonSearch.Location = new Point(0, 29);
             buttonSearch.Name = "buttonSearch";
-            buttonSearch.Size = new Size(287, 34);
+            buttonSearch.Size = new Size(259, 34);
             buttonSearch.TabIndex = 1;
             buttonSearch.Text = "Поиск";
             buttonSearch.UseVisualStyleBackColor = true;
@@ -127,7 +127,7 @@
             textBoxSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBoxSearch.Location = new Point(0, 0);
             textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.Size = new Size(287, 29);
+            textBoxSearch.Size = new Size(259, 29);
             textBoxSearch.TabIndex = 0;
             // 
             // dataGridDecimal
@@ -138,16 +138,19 @@
             dataGridDecimal.Location = new Point(0, 0);
             dataGridDecimal.Name = "dataGridDecimal";
             dataGridDecimal.RowTemplate.Height = 25;
-            dataGridDecimal.Size = new Size(287, 300);
+            dataGridDecimal.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridDecimal.Size = new Size(259, 300);
             dataGridDecimal.TabIndex = 1;
             // 
             // DecimalDictForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(287, 471);
+            ClientSize = new Size(259, 471);
             Controls.Add(dataGridDecimal);
             Controls.Add(panel1);
+            MaximumSize = new Size(400, 600);
+            MinimumSize = new Size(275, 400);
             Name = "DecimalDictForm";
             Text = "Справочник дец номеров";
             panel1.ResumeLayout(false);

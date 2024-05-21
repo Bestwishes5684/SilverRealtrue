@@ -74,6 +74,24 @@ namespace SilverRealtrue
                 }
                 else
                 {
+                    int checkDecimal;
+
+                    if (!db.DecimalNumber.Any(x => x.TitleDecimal.ToLower().Trim() == comboBoxDecimal.Text.ToLower().Trim()))
+                    {
+                        DecimalNumber newDecimal = new DecimalNumber
+                        {
+                            TitleDecimal = comboBoxDecimal.Text
+                        };
+                        db.DecimalNumber.Add(newDecimal);
+                        db.SaveChanges();
+
+                        checkDecimal = db.DecimalNumber.OrderBy(x => x.IdDecimal).Last().IdDecimal;
+                    }
+                    else
+                    {
+                        checkDecimal = ((DecimalNumber)comboBoxDecimal.SelectedItem).IdDecimal;
+                    }
+
                     Check newCheck = new Check
                     {
                         DateCheck = dateTimePicker1.Value,
@@ -83,7 +101,7 @@ namespace SilverRealtrue
                         SilverTypeCheck = ((SilverType)comboBoxType.SelectedItem).CodeSilverType,
                         CoverageCheck = Convert.ToDecimal(maskedTextBoxCover.Text),
                         AmountCheck = Convert.ToInt32(numericUpDownAmount.Value),
-                        DecimalCheck = ((DecimalNumber)comboBoxDecimal.SelectedItem).IdDecimal,
+                        DecimalCheck = checkDecimal,
                         OrderCheck = textBoxOrder.Text
                     };
 
@@ -108,24 +126,40 @@ namespace SilverRealtrue
             }
         }
 
-        private void textBoxNorm_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char number = e.KeyChar;
-
-            if (!Char.IsDigit(number))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void textBoxOrder_KeyDown(object sender, KeyEventArgs e)
         {
-           
+            char digit = Convert.ToChar(e.KeyCode);
+
+            if (!Char.IsDigit(digit) || e.KeyCode == Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void maskedTextBoxNorm_KeyDown(object sender, KeyEventArgs e)
+        {
+            char digit = Convert.ToChar(e.KeyCode);
+
+            if (!Char.IsDigit(digit) || e.KeyCode == Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            char digit = Convert.ToChar(e.KeyCode);
+
+            if (!Char.IsDigit(digit) || e.KeyCode == Keys.Back)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

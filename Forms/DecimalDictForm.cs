@@ -27,6 +27,9 @@ namespace SilverRealtrue.Forms
 
                 dataGridDecimal.Columns["IdDecimal"].HeaderText = "Идентификатор номера";
                 dataGridDecimal.Columns["TitleDecimal"].HeaderText = "Децимальный номер";
+                dataGridDecimal.Columns["Check"].Visible = false;
+                dataGridDecimal.Columns["Norm"].Visible = false;
+
 
             }
         }
@@ -65,20 +68,21 @@ namespace SilverRealtrue.Forms
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            /*
             using (var db = new SilverREContext())
             {
                 var selected = Convert.ToInt32(dataGridDecimal.Rows[dataGridDecimal.SelectedRows[0].Index].Cells[0].Value);
                 var editDecimal = db.DecimalNumber.FirstOrDefault(x => x.IdDecimal == selected);
-                
-                if (editDecimal != null)
-                {
 
+                EditDecimalForm editDecimalForm = new EditDecimalForm(editDecimal);
+
+
+                if (editDecimalForm.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("Децимальный номер успешно изменён");
+                    InitDatagrid();
                 }
 
-                db.DecimalNumber.Add(editDecimal);
-                db.SaveChanges();
-            }*/
+            }
         }
     }
 }

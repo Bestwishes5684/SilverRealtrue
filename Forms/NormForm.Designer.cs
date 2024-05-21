@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            panel3 = new Panel();
             buttonEdit = new Button();
             buttonDel = new Button();
             buttonADDNorm = new Button();
-            dataGridViewNorm = new DataGridView();
             panel2 = new Panel();
-            panel3 = new Panel();
+            dataGridViewNorm = new DataGridView();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewNorm).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewNorm).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -49,6 +49,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(201, 450);
             panel1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(buttonEdit);
+            panel3.Controls.Add(buttonDel);
+            panel3.Controls.Add(buttonADDNorm);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(0, 66);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(201, 384);
+            panel3.TabIndex = 4;
             // 
             // buttonEdit
             // 
@@ -86,17 +97,6 @@
             buttonADDNorm.UseVisualStyleBackColor = true;
             buttonADDNorm.Click += buttonADDNorm_Click;
             // 
-            // dataGridViewNorm
-            // 
-            dataGridViewNorm.BackgroundColor = SystemColors.ControlLight;
-            dataGridViewNorm.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewNorm.Dock = DockStyle.Fill;
-            dataGridViewNorm.Location = new Point(0, 0);
-            dataGridViewNorm.Name = "dataGridViewNorm";
-            dataGridViewNorm.RowTemplate.Height = 25;
-            dataGridViewNorm.Size = new Size(635, 450);
-            dataGridViewNorm.TabIndex = 1;
-            // 
             // panel2
             // 
             panel2.Dock = DockStyle.Top;
@@ -105,16 +105,17 @@
             panel2.Size = new Size(201, 66);
             panel2.TabIndex = 3;
             // 
-            // panel3
+            // dataGridViewNorm
             // 
-            panel3.Controls.Add(buttonEdit);
-            panel3.Controls.Add(buttonDel);
-            panel3.Controls.Add(buttonADDNorm);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 66);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(201, 384);
-            panel3.TabIndex = 4;
+            dataGridViewNorm.BackgroundColor = SystemColors.ControlLight;
+            dataGridViewNorm.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewNorm.Dock = DockStyle.Fill;
+            dataGridViewNorm.Location = new Point(0, 0);
+            dataGridViewNorm.Name = "dataGridViewNorm";
+            dataGridViewNorm.RowTemplate.Height = 25;
+            dataGridViewNorm.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewNorm.Size = new Size(635, 450);
+            dataGridViewNorm.TabIndex = 1;
             // 
             // NormForm
             // 
@@ -126,8 +127,8 @@
             Name = "NormForm";
             Text = "Нормы";
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridViewNorm).EndInit();
             panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewNorm).EndInit();
             ResumeLayout(false);
         }
 

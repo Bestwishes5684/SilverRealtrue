@@ -152,7 +152,6 @@ namespace SilverRealtrue
             comboBoxType.Name = "comboBoxType";
             comboBoxType.Size = new Size(175, 29);
             comboBoxType.TabIndex = 24;
-            comboBoxType.SelectedIndexChanged += comboBoxType_SelectedIndexChanged;
             // 
             // maskedTextBoxCover
             // 
@@ -189,6 +188,7 @@ namespace SilverRealtrue
             textBoxOrder.Name = "textBoxOrder";
             textBoxOrder.Size = new Size(128, 29);
             textBoxOrder.TabIndex = 28;
+            textBoxOrder.KeyDown += textBoxOrder_KeyDown;
             textBoxOrder.KeyPress += textBoxOrder_KeyPress;
             // 
             // buttonCancel
@@ -212,6 +212,7 @@ namespace SilverRealtrue
             maskedTextBoxNorm.Name = "maskedTextBoxNorm";
             maskedTextBoxNorm.Size = new Size(100, 29);
             maskedTextBoxNorm.TabIndex = 30;
+            maskedTextBoxNorm.KeyDown += maskedTextBoxNorm_KeyDown;
             // 
             // textBoxNumber
             // 
@@ -220,6 +221,7 @@ namespace SilverRealtrue
             textBoxNumber.Name = "textBoxNumber";
             textBoxNumber.Size = new Size(128, 29);
             textBoxNumber.TabIndex = 32;
+            textBoxNumber.KeyDown += textBoxNumber_KeyDown;
             // 
             // label2
             // 
