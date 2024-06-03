@@ -7,6 +7,8 @@ namespace SilverRealtrue
 {
     public partial class MainWindow : Form
     {
+        public enum ReportsType { byOrderSilver, byOrderCover, byDepartment }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -53,6 +55,7 @@ namespace SilverRealtrue
                 dataGridSilver.Columns["IdCheck"].HeaderText = "Идентификатор чека";
                 dataGridSilver.Columns["NumberCheck"].HeaderText = "Номер чека";
                 dataGridSilver.Columns["DateCheck"].HeaderText = "Дата чека";
+                dataGridSilver.Columns["DateCheck"].SortMode = DataGridViewColumnSortMode.Automatic;
                 dataGridSilver.Columns["DepartmentCheck"].HeaderText = "Номер цеха";
                 dataGridSilver.Columns["NormCheck"].HeaderText = "Норма серебра";
                 dataGridSilver.Columns["SilverTypeCheck"].HeaderText = "Вид серебра";
@@ -173,6 +176,24 @@ namespace SilverRealtrue
         {
             DecimalDictForm decForm = new DecimalDictForm();
             decForm.ShowDialog();
+        }
+
+        private void поЦехуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportManager departmentReport = new ReportManager(ReportsType.byDepartment);
+            departmentReport.Show();
+        }
+
+        private void обсчётСеребраToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportManager silverReport = new ReportManager(ReportsType.byOrderSilver);
+            silverReport.Show();
+        }
+
+        private void обсчётПлощадиСеребренияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportManager coverReport = new ReportManager(ReportsType.byOrderCover);
+            coverReport.Show();
         }
     }
 }

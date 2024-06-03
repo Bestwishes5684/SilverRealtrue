@@ -41,9 +41,17 @@
             button2 = new Button();
             panel2 = new Panel();
             dataGridSilver = new DataGridView();
+            menuStrip1 = new MenuStrip();
+            действияToolStripMenuItem = new ToolStripMenuItem();
+            отчётыToolStripMenuItem = new ToolStripMenuItem();
+            поЗаказамToolStripMenuItem = new ToolStripMenuItem();
+            обсчётСеребраToolStripMenuItem = new ToolStripMenuItem();
+            обсчётПлощадиСеребренияToolStripMenuItem = new ToolStripMenuItem();
+            поЦехуToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridSilver).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -51,9 +59,9 @@
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1035, 0);
+            panel1.Location = new Point(1035, 24);
             panel1.Name = "panel1";
-            panel1.Size = new Size(199, 441);
+            panel1.Size = new Size(199, 417);
             panel1.TabIndex = 0;
             // 
             // panel3
@@ -67,10 +75,10 @@
             panel3.Controls.Add(buttonClear);
             panel3.Controls.Add(SearchButton);
             panel3.Controls.Add(button2);
-            panel3.Dock = DockStyle.Top;
+            panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 58);
             panel3.Name = "panel3";
-            panel3.Size = new Size(199, 380);
+            panel3.Size = new Size(199, 359);
             panel3.TabIndex = 6;
             // 
             // buttonDecimalDict
@@ -125,7 +133,7 @@
             // 
             buttonIncorrect.Dock = DockStyle.Bottom;
             buttonIncorrect.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonIncorrect.Location = new Point(0, 255);
+            buttonIncorrect.Location = new Point(0, 234);
             buttonIncorrect.Name = "buttonIncorrect";
             buttonIncorrect.Size = new Size(199, 43);
             buttonIncorrect.TabIndex = 7;
@@ -149,7 +157,7 @@
             // 
             buttonClear.Dock = DockStyle.Bottom;
             buttonClear.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonClear.Location = new Point(0, 298);
+            buttonClear.Location = new Point(0, 277);
             buttonClear.Name = "buttonClear";
             buttonClear.Size = new Size(199, 41);
             buttonClear.TabIndex = 5;
@@ -161,7 +169,7 @@
             // 
             SearchButton.Dock = DockStyle.Bottom;
             SearchButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            SearchButton.Location = new Point(0, 339);
+            SearchButton.Location = new Point(0, 318);
             SearchButton.Name = "SearchButton";
             SearchButton.Size = new Size(199, 41);
             SearchButton.TabIndex = 1;
@@ -196,14 +204,64 @@
             dataGridSilver.BackgroundColor = SystemColors.ControlLight;
             dataGridSilver.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridSilver.Dock = DockStyle.Fill;
-            dataGridSilver.Location = new Point(0, 0);
+            dataGridSilver.Location = new Point(0, 24);
             dataGridSilver.MultiSelect = false;
             dataGridSilver.Name = "dataGridSilver";
             dataGridSilver.ReadOnly = true;
             dataGridSilver.RowTemplate.Height = 25;
             dataGridSilver.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridSilver.Size = new Size(1035, 441);
+            dataGridSilver.Size = new Size(1035, 417);
             dataGridSilver.TabIndex = 1;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { действияToolStripMenuItem, отчётыToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1234, 24);
+            menuStrip1.TabIndex = 2;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // действияToolStripMenuItem
+            // 
+            действияToolStripMenuItem.Name = "действияToolStripMenuItem";
+            действияToolStripMenuItem.Size = new Size(70, 20);
+            действияToolStripMenuItem.Text = "Действия";
+            // 
+            // отчётыToolStripMenuItem
+            // 
+            отчётыToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { поЗаказамToolStripMenuItem, поЦехуToolStripMenuItem });
+            отчётыToolStripMenuItem.Name = "отчётыToolStripMenuItem";
+            отчётыToolStripMenuItem.Size = new Size(60, 20);
+            отчётыToolStripMenuItem.Text = "Отчёты";
+            // 
+            // поЗаказамToolStripMenuItem
+            // 
+            поЗаказамToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { обсчётСеребраToolStripMenuItem, обсчётПлощадиСеребренияToolStripMenuItem });
+            поЗаказамToolStripMenuItem.Name = "поЗаказамToolStripMenuItem";
+            поЗаказамToolStripMenuItem.Size = new Size(180, 22);
+            поЗаказамToolStripMenuItem.Text = "По заказам";
+            // 
+            // обсчётСеребраToolStripMenuItem
+            // 
+            обсчётСеребраToolStripMenuItem.Name = "обсчётСеребраToolStripMenuItem";
+            обсчётСеребраToolStripMenuItem.Size = new Size(236, 22);
+            обсчётСеребраToolStripMenuItem.Text = "Обсчёт серебра";
+            обсчётСеребраToolStripMenuItem.Click += обсчётСеребраToolStripMenuItem_Click;
+            // 
+            // обсчётПлощадиСеребренияToolStripMenuItem
+            // 
+            обсчётПлощадиСеребренияToolStripMenuItem.Name = "обсчётПлощадиСеребренияToolStripMenuItem";
+            обсчётПлощадиСеребренияToolStripMenuItem.Size = new Size(236, 22);
+            обсчётПлощадиСеребренияToolStripMenuItem.Text = "Обсчёт площади серебрения";
+            обсчётПлощадиСеребренияToolStripMenuItem.Click += обсчётПлощадиСеребренияToolStripMenuItem_Click;
+            // 
+            // поЦехуToolStripMenuItem
+            // 
+            поЦехуToolStripMenuItem.Name = "поЦехуToolStripMenuItem";
+            поЦехуToolStripMenuItem.Size = new Size(180, 22);
+            поЦехуToolStripMenuItem.Text = "По цеху";
+            поЦехуToolStripMenuItem.Click += поЦехуToolStripMenuItem_Click;
             // 
             // MainWindow
             // 
@@ -212,6 +270,8 @@
             ClientSize = new Size(1234, 441);
             Controls.Add(dataGridSilver);
             Controls.Add(panel1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             MaximumSize = new Size(1300, 1000);
             MinimumSize = new Size(1200, 400);
             Name = "MainWindow";
@@ -220,7 +280,10 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridSilver).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -239,5 +302,12 @@
         private CheckBox checkBoxDelete;
         private Button buttonNormTB;
         private Button buttonDecimalDict;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem действияToolStripMenuItem;
+        private ToolStripMenuItem отчётыToolStripMenuItem;
+        private ToolStripMenuItem поЗаказамToolStripMenuItem;
+        private ToolStripMenuItem обсчётСеребраToolStripMenuItem;
+        private ToolStripMenuItem обсчётПлощадиСеребренияToolStripMenuItem;
+        private ToolStripMenuItem поЦехуToolStripMenuItem;
     }
 }
